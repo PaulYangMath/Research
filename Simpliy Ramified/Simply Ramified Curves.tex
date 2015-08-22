@@ -1,0 +1,213 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{mathrsfs} 
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym} 
+%\usepackage{epsfig}
+%\usepackage{graphicx}
+%\usepackage[dvips]{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+
+
+\usepackage[matrix,tips,graph,curve]{xy}
+
+\newcommand{\mnote}[1]{${}^*$\marginpar{\footnotesize ${}^*$#1}}
+\linespread{1.065}
+
+\makeatletter
+
+\setlength\@tempdima  {5.5in}
+\addtolength\@tempdima {-\textwidth}
+\addtolength\hoffset{-0.5\@tempdima}
+\setlength{\textwidth}{5.5in}
+\setlength{\textheight}{8.75in}
+\addtolength\voffset{-0.625in}
+
+\makeatother
+
+\makeatletter 
+\@addtoreset{equation}{section}
+\makeatother
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{definitions}[equation]{Definitions}
+%\theoremstyle{remark}
+
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{remarks}[equation]{Remarks}
+\newtheorem{exercise}[equation]{Exercise}
+\newtheorem{example}[equation]{Example}
+\newtheorem{examples}[equation]{Examples}
+\newtheorem{notation}[equation]{Notation}
+\newtheorem{question}[equation]{Question}
+\newtheorem{assumption}[equation]{Assumption}
+\newtheorem*{claim}{Claim}
+\newtheorem{answer}[equation]{Answer}
+%%%%%% letters %%%%
+
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}}
+
+\newcommand{\IA}{\mathbb{A}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IF}{\mathbb{F}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IZ}{\mathbb{Z}}
+
+\newcommand{\sD}{\mathcal{D}}
+\newcommand{\sI}{\mathcal{I}}
+\newcommand{\sO}{\mathcal{O}}
+\newcommand{\sP}{\mathcal{P}}
+\newcommand{\sQ}{\mathcal{Q}}
+\newcommand{\sT}{\mathcal{T}}
+\newcommand{\sU}{\mathcal{U}}
+
+\newcommand{\shF}{\mathscr{F}}
+\newcommand{\shG}{\mathscr{G}}
+%%%%%%% macros %%%%%
+
+%% my definitions %%%
+
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Trace}{\mathrm{Trace}\,}
+\newcommand{\rank}{\mathrm{rank}}
+\renewcommand{\deg}{\mathrm{deg}\,}
+\newcommand{\Spec}{\rm Spec\,}
+\newcommand{\Proj}{\rm Proj\,}
+\newcommand{\Sym}{\mathrm{Sym \,}}
+\newcommand{\Span}{\mathrm{Span \,}}
+\renewcommand\dim{{\rm dim\,}}
+\newcommand{\codim}{{\rm codim\,}}
+\renewcommand\det{{\rm det\,}}
+\newcommand{\im}{{\rm Im\,}}
+
+
+\newcommand\iso{{\, \simeq \,}} 
+\newcommand\tensor{{\otimes}}
+\newcommand\Tensor{{\bigotimes}} 
+\newcommand\union{\bigcup} 
+\newcommand\onehalf{\frac{1}{2}}
+\newcommand\trivial{{\mathbb I}}
+\newcommand\wb{\overline}
+
+%%%%%Delimiters%%%%
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+%\renewcommand{\(}{\left(}
+%\renewcommand{\)}{\right)}
+
+
+%%%% Different kind of derivatives %%%%%
+
+\newcommand{\delbar}{\bar{\partial}}
+\newcommand{\pdu}{\frac{\partial}{\partial u}}
+%\newcommand{\pd}[1][2]{\frac{\partial #1}{\partial #2}}
+
+%%%%% Arrows %%%%%
+\newcommand{\induce}{\rightsquigarrow}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\tto}{\longmapsto}
+\def\llra{\longleftrightarrow}
+\def\wt{\widetilde}
+\def\wtilde{\widetilde}
+\def\what{\widehat}
+\def\bf{\textbf}
+\def\it{\textit}
+%%%%%%%%%%%%%%%%%%% Ziquan's definitions %%%%%%%%%%%%%%%%%%%%
+\newcommand{\Ann}{\mathrm{Ann}}
+\newcommand{\height}{\mathrm{height \,}}
+\newcommand{\Div}{\mathrm{Div}}
+\newcommand{\sE}{\mathcal{E}}
+\newcommand{\p}{\partial}
+\newcommand{\Ohm}{\Omega}
+\newcommand{\w}{\omega}
+\newcommand{\sing}{\mathrm{sing}}
+%%%%%%%%%%%%% new definitions for the positive mass paper %%%%%%%%%
+
+\newcommand{\sperp}{{\scriptscriptstyle \perp}}
+\newcommand{\Qmed}{\mathcal{Q}_r^\mathrm{medium}}
+\newcommand{\Qhigh}{\mathcal{Q}^\mathrm{high}}
+\newcommand{\uppermu}{\overline{\mu}}
+\newcommand{\lowermu}{\underline{\mu}}
+\newcommand{\res}{\mathrm{res}}
+\newcommand{\ev}{\mathrm{ev}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\Prob}{\mathrm{Prob}}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%
+\begin{document}
+%
+
+\title{Simply Ramified Curves}
+\author{Ziquan Yang}
+
+
+\date{\today}
+
+\maketitle
+
+ 
+%\setcounter{secnumdepth}{1} 
+
+\setcounter{section}{0}
+\section{Introduction}
+\section{A Bertini theorem}
+\section{A density result}
+\begin{theorem}
+The aymptotic probability as $d \to \infty$ for a curve in $\IP^1 \times \IP^1$ over $\IF_q$ of bidegree $(3, d)$ to be simply ramified is $\zeta_{\IP_{\IF_q}}(2)^{-2}$. To be precise, let $X = \IP^1 \times \IP^1$, $A = \sO_X(1, 1)$, $E = \sO_X(0, 1)$, $n = 3$ and $R_{n,d} = H^0(X, \sO_X(nA + d E))$. Suppose $p = \mathrm{char } \IF_q \neq 2$. Then 
+$$\lim_{d \to \infty} \frac{|f \in R_{n, d} : H_f \textit{ is simply ramified}|}{|R_{n,d}|} = \zeta_{\IP_{\IF_q}}(2)^{-2} $$ In particular, the conditioned probability for a randomly chosen smooth curve to be simply ramified is $\zeta_{\IP_{\IF_q}}(2)/\zeta_{\IP_{\IF_q}}(3)$. 
+\end{theorem}
+In the setting of Erman and Wood's paper, we have $$\iota : X \stackrel{|A|}{\to} \IP^3, \pi : X \stackrel{|E|}{\to} \IP^1$$ $\iota$ in our case is simply Segre embedding and $\pi$ is projection to the second component. We say $f \in R_{n, d}$ is ``simply ramified" (resp. ``multiply ramified") at a point $Q \in X$ if $H_f$ and $X_{\pi(Q)}$ intersect with multiplicity $2$ (resp. $\ge 3$) at $Q$. We say $f \in R_{n, d}$ is ``good" at $Q \in X$, if $H_f$ is both smooth and simply ramified at $Q$, and ``bad" otherwise. For a fixed $e_0 \in \IN$, we define 
+\begin{align*}
+\sP_{e_0}^{\mathrm{low}} &= \union_{d \ge 0} \{ f \in R_{n, d} : H_f \textit{ is good at all $Q \in X$,}\deg \pi(Q) < e_0\}\\
+\sQ_{e_0}^{\mathrm{med}} &= \union_{d \ge 0} \{f \in R_{n, d} : H_f \textit{ is bad at some $Q$, }\deg \pi(Q) \in [e_0, \lfloor d/p \rfloor]\}\\
+\sQ^{\mathrm{high}} &= \union_{d \ge 0} \{f \in R_{n, d} : H_f \textit{ is bad at some $Q$, }\deg \pi(Q) > d/p\}
+\end{align*}
+In accordance with the convention in Erman and Wood's paper, by ``probability" we often mean the asymptotic probability as $d \to \infty$. To be precise, if $\sP \subseteq \union_d R_{n, d}$, we define 
+$$ \Prob(f \in \sP) = \lim_{d \to \infty}\Prob(f_d \in \sP) $$
+where $f$ and $f_d$ are randomly chosen from $\union_{d} R_{n, d}$ and $R_{n, d}$ respectively. 
+\begin{lemma}
+Let $f \in R_{n, d}$ be chosen and random and $j \in \IN$ be fixed. The probability $P^*$ that $H_f$ has a doubly ramified point $Q \in X$ with $\deg \pi(Q) \ge j$ is at most
+$$ \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j    \}})$$
+\end{lemma}
+For the spaces involved in morphisms $\iota : X \to \IP^3$ and $\pi : X \to \IP^1$ we label the coordinates of $X$ as $((x_0 : x_1), (y_0 : y_1))$, those of $\IP^3$ as $(s_0 : s_1 : s_2 : s_3)$ and those of $\IP^1$ as $(t_0 : t_1)$. We only consider their affine chart on which the first coordinate does not vanish and may use the same letters to denote the dehomogenized coordinates, but we will use ``," instead of ``:" for affine coordiantes. In the proof we use $\iota$ to identify $X$ with a subscheme of $\IP^3$. On affine chart $\IA^2 = \{ x_0, y_0 \neq 0 \} \subseteq X$, $\iota$ restricts to $$(x, y) \mapsto (x, y, xy) \in \IA^3 = \{s_0 \neq 0\} \subseteq \IP^3$$. We can cover $X$ by finitely many affine opens, so we may restrict to $U = X \cap \IA^3$. On $U$ we see that $s_3 = s_1 s_2$ and hence $ds_3 = s_2 ds_1 + s_1 ds_2$. Therefore the differentials in $U$ are generated by $ds_1, ds_2$. For each $f \in A = \IF_q[s_1, s_2, s_3]$, on $U$ $df$ has a unique decomposition $df = D_1 f ds_1 + D_2 f ds_2$. This gives maps $D_i : A \to A$, which we should think of as derivatives of pullbacks. To be precise, if $\Phi : A \to \IF_q[x, y]$ is the pullback map of regular functions, then $$\Phi(D_1 f) = \frac{\p}{\p x} \Phi(f), \text{ and }\Phi(D_2 f) = \frac{\p}{\p y} \Phi(f)$$ As an example, let $f = s_3$, then $D_1 f = s_2, D_2 f = s_1$, and the verification is straightforward. 
+
+Now let me explain a simple linear algebraic observation. Let $V$ be a $n$-dimensional vector space over $\IF_q$ and $\ker L$ is a $k$-dimensional subspace ($L$ is some linear map). Let $W \subseteq V$ be a $m$-dimensional subspace, then $\dim W \cap \ker L \ge m + k - n$, and hence $$\frac{|W \cap \ker L|}{|W|} \ge \frac{q^{m + k - n}}{q^m} = q^{k - n} = \frac{|\ker L|}{|V|}$$ Note that the image of a curve in the second infinitestimal neighborhood $Q^{(3)}$ on $U$ already contains enough informaiton to decide whether the curve is multiply ramified at $Q$ and the map $S_{n, d} = H^0(\IP^3 \times \IP^1, \sO(n, d)) \to H^0(Q^{(3)}, \sO_{Q^{(3)}})$ factors through $\phi : S_{n, d} \to R_{n, d}$. The probability that a randomly chosen $f \in R_{n, d}$ to give a curve multiply ramified at $Q$ is bounded by that of $g \in S_{n, d}$. Therefore we reduce to studying a randomly chosen $g \in S_{n, d}$.  
+
+Locally $\phi$ is viewed as follows: On chart $\IA^1 = \{t_0 \neq 0 \} \subseteq \IP^1$, the dehomogenized coordinate function $t = t_1/t_0$ pulls back via $\pi$ to a regular function on $U$, but in practice in only means on $U$ we identify $t$ with $y$ or $s_2$. Recall that for a point $Q \in U$, $g \in S_{n, d}$ is doubly ramified at $Q$ if and only if $$Q \in \{ D_1 \phi(g) = D_1^2 \phi(g) = \phi(g) = 0 \}$$ Since we are primarily concerned with $D_1$ we would drop the supscript and write $D_1 = D$ and similarly $s = s_1$. 
+
+We apply the Poonen's decouply idea to decouple the first and second order partial derivatives in this context. To choose $g \in S_{n, d}$ at randomly we choose $g_0 \in S_d$, $g_1, g_2, h \in S_{0, \lfloor d/p \rfloor} $ at random and put 
+$$ g = g_0 + g_1^p s^2 + g_2^p s + h^p $$ This has the advantage that 
+$$ D \phi(g) = D \phi(g_0) + 2 \phi(g_1^p s) + \phi(g_2)^p \text{ and } D^2 \phi(g) = D^2 \phi(g_0) + 2 \phi(g_1)^p $$
+Define $W_2 = U \cap \{ D^2 \phi(g) = 0 \}$, $W_1 = U \cap \{D^2 \phi(g) = D \phi(g) = 0\}$ and $W_0 = U \cap \{ D^2 \phi(g) = D \phi(g) = \phi(g) = 0\}$. \\
+\textit{Claim: }Conditioned on a choice of $g_0$, the probability that $\dim W_2 = 1$ and $W_2$ contains a point $Q$ with $\deg \pi(Q) \ge j$ (following Erman and Wood's convention we call such $Q$ an ``admissible" point) is $$1 - \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}})$$ Let $V_1, \cdots, V_c$ be irreducible components of $\{D^2(\phi(g_0)) = 0\}_{\mathrm{red}}$. For each $V_k$ that contains an admissible point, those $g_1$ that will make $D^2 \phi(g)$ vanish identically on $V_k$ form a coset of the linear map $$ \varphi_k : S_{0, \lfloor n/p \rfloor} \to H^0(V_k, \sO_{V_k})$$ A lower bound on $|\im \varphi_k|$ gives an upper bound for the probability that $D^2(g)$ vanish on $V_k$, which is simply the inverse of $|\im \varphi_k|$. If $\dim \pi(V_k) = 1$, we see that the pull back $t$ does not vanish on $V_k$, and hence any polynomial in $t$. In this case, we have $|\im \varphi_k| \ge q^{\lfloor d/p \rfloor + 1}$. If $\dim \pi(V_k) = 0$, we invoke lemma \ref{fiberimage} to obtain $|\im \varphi_k| \ge q^{\min \{\lfloor d/p \rfloor + 1, j \}  }$. The claim hence follows. Similarly, we can show that the probability that $\dim W_1 = 0$ conditioned on a choice of $g_0, g_1$ such that $\dim W_2 = 1$, and the probability that $W_0 = $ 
+\end{document}

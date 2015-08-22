@@ -1,0 +1,413 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{mathrsfs} 
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym} 
+%\usepackage{epsfig}
+%\usepackage{graphicx}
+%\usepackage[dvips]{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+
+
+\usepackage[matrix,tips,graph,curve]{xy}
+
+\newcommand{\mnote}[1]{${}^*$\marginpar{\footnotesize ${}^*$#1}}
+\linespread{1.065}
+
+\makeatletter
+
+\setlength\@tempdima  {5.5in}
+\addtolength\@tempdima {-\textwidth}
+\addtolength\hoffset{-0.5\@tempdima}
+\setlength{\textwidth}{5.5in}
+\setlength{\textheight}{8.75in}
+\addtolength\voffset{-0.625in}
+
+\makeatother
+
+\makeatletter 
+\@addtoreset{equation}{section}
+\makeatother
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{definitions}[equation]{Definitions}
+%\theoremstyle{remark}
+
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{remarks}[equation]{Remarks}
+\newtheorem{exercise}[equation]{Exercise}
+\newtheorem{example}[equation]{Example}
+\newtheorem{examples}[equation]{Examples}
+\newtheorem{notation}[equation]{Notation}
+\newtheorem{question}[equation]{Question}
+\newtheorem{assumption}[equation]{Assumption}
+\newtheorem*{claim}{Claim}
+\newtheorem{answer}[equation]{Answer}
+%%%%%% letters %%%%
+
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}}
+
+\newcommand{\IA}{\mathbb{A}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IF}{\mathbb{F}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IZ}{\mathbb{Z}}
+
+\newcommand{\sD}{\mathcal{D}}
+\newcommand{\sI}{\mathcal{I}}
+\newcommand{\sO}{\mathcal{O}}
+\newcommand{\sP}{\mathcal{P}}
+\newcommand{\sT}{\mathcal{T}}
+\newcommand{\sU}{\mathcal{U}}
+
+\newcommand{\shF}{\mathscr{F}}
+\newcommand{\shG}{\mathscr{G}}
+%%%%%%% macros %%%%%
+
+%% my definitions %%%
+
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Trace}{\mathrm{Trace}\,}
+\newcommand{\rank}{\mathrm{rank}}
+\renewcommand{\deg}{\mathrm{deg}\,}
+\newcommand{\Spec}{\rm Spec\,}
+\newcommand{\Proj}{\rm Proj\,}
+\newcommand{\Sym}{\mathrm{Sym \,}}
+\newcommand{\Span}{\mathrm{Span \,}}
+\renewcommand\dim{{\rm dim\,}}
+\newcommand{\codim}{{\rm codim\,}}
+\renewcommand\det{{\rm det\,}}
+\newcommand{\im}{{\rm Im\,}}
+
+
+\newcommand\iso{{\, \simeq \,}} 
+\newcommand\tensor{{\otimes}}
+\newcommand\Tensor{{\bigotimes}} 
+\newcommand\union{\bigcup} 
+\newcommand\onehalf{\frac{1}{2}}
+\newcommand\trivial{{\mathbb I}}
+\newcommand\wb{\overline}
+
+%%%%%Delimiters%%%%
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+%\renewcommand{\(}{\left(}
+%\renewcommand{\)}{\right)}
+
+
+%%%% Different kind of derivatives %%%%%
+
+\newcommand{\delbar}{\bar{\partial}}
+\newcommand{\pdu}{\frac{\partial}{\partial u}}
+%\newcommand{\pd}[1][2]{\frac{\partial #1}{\partial #2}}
+
+%%%%% Arrows %%%%%
+\newcommand{\induce}{\rightsquigarrow}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\tto}{\longmapsto}
+\def\llra{\longleftrightarrow}
+\def\wt{\widetilde}
+\def\wtilde{\widetilde}
+\def\what{\widehat}
+\def\bf{\textbf}
+\def\it{\textit}
+%%%%%%%%%%%%%%%%%%% Ziquan's definitions %%%%%%%%%%%%%%%%%%%%
+\newcommand{\Ann}{\mathrm{Ann}}
+\newcommand{\height}{\mathrm{height \,}}
+\newcommand{\Div}{\mathrm{Div}}
+\newcommand{\sE}{\mathcal{E}}
+\newcommand{\p}{\partial}
+\newcommand{\Ohm}{\Omega}
+\newcommand{\sing}{\mathrm{sing}}
+%%%%%%%%%%%%% new definitions for the positive mass paper %%%%%%%%%
+
+\newcommand{\sperp}{{\scriptscriptstyle \perp}}
+\newcommand{\Qmed}{\mathcal{Q}_r^\mathrm{medium}}
+\newcommand{\Qhigh}{\mathcal{Q}^\mathrm{high}}
+\newcommand{\uppermu}{\overline{\mu}}
+\newcommand{\lowermu}{\underline{\mu}}
+\newcommand{\res}{\mathrm{res}}
+\newcommand{\ev}{\mathrm{ev}}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%
+\begin{document}
+%
+
+\title{Notes on Poonen's Paper}
+\author{Ziquan Yang}
+
+
+\date{May 25, 2015}
+
+\maketitle
+\tableofcontents
+
+ 
+%\setcounter{secnumdepth}{1} 
+
+\setcounter{section}{0}
+\section{Introduction}
+In his expositary paper Poonen discussed an easy application of the idea of sieve method in number theory to compute the density square-free integers. Since we are talking about an infinite subset of integers, we first need to define what we mean by density. 
+\begin{definition}
+\label{Zdef}
+The \textit{density} $\mu$ of a subset $S \subseteq \IN$ id defined by
+$$\mu(S) = \lim_{B \to \infty} \frac{|S \cap [1, B]|}{B} $$
+\end{definition} Let $\sP$ be the set of all primes, and we use $\sP_{<r}$ to denote the set of primes $<r$. For every bounded $B$ we only need to care finitely many primes, i.e. sufficiently large $\sP_{<r}$, and we have a good understanding of how to deal with finitely many primes. A standard application of Chinese remainder theorem it is easy to compute the density of $S_r := \{ n \in \IN : p^2 \textit{ does not divide } n, \forall p \in \sP_{<r} \}$: $$\mu(S_r) = \prod_{p \in \sP_r} (1 - p^{-2})$$
+However, the CRT argument breaks down for infinitely many primes. As $S$ is the limit of $S_r$, i.e $S = \cap_{r = 1}^\infty S_r$, we may want to push $r \to \infty$ and guess that $\mu(S) = \zeta(2)^{-1} = \pi^2/6$. It requires some nontrivial work to justify this switch of order of taking limits, i.e. 
+$$ \lim_{B \to \infty} \frac{|S \cap [1, B]|}{B} = \lim_{B \to \infty} \frac{|\cap_r S_r \cap [1, B]|}{B} = \lim_{r \to \infty} \lim_{B_r \to \infty} \frac{|S_r \cap [1, B]|}{B}$$
+The idea is to bound the error term $|\mu(S) - \mu(S_r)|$ and show it vanishes as $r \to \infty$. To be precise we want to show $$\lim_{r \to \infty} \lim_{S \to \infty} \frac{|n \in B_r \cap [1, B]: n \textit{ divisible by some }p^2, p >r|}{B} = 0$$
+This can be shown using pretty crude bounds:
+\begin{align*} |n \in B_r \cap [1, B]: n & \textit{ divisible by some }p^2, p >r| \\ &\le |n \in [1, B]: n \textit{ divisible by some }p^2, p >r| \\ &\le \sum_{p > r} \lfloor \frac{B}{p^2} \rfloor \\
+&\le \sum_{m > r} \lfloor \frac{B}{m^2} \rfloor \\
+&\le B \int_r^\infty \frac{1}{x^2} dx \\
+&= B/r
+\end{align*}
+Poonen used a similar sieve method to prove the following:
+\begin{theorem}
+\label{Bertini}
+Let $X$ be a quasiprojective subscheme of $\IP^n$ of dimension $m \ge 0$ over $\IF_q$. Define 
+$$ \sP := \{ f \in S_{\mathrm{homog}} : H_f \cap X \textit{ is smooth of dimension }m-1 $$
+Then $\mu(\sP) = \zeta_X(m + 1)^{-1}$. 
+\end{theorem}
+\begin{definition}
+\label{Pdef}
+Define the density of a subset $\sP \subset S_\mathrm{homog}$ by
+$$\mu(\sP) = \lim_{d \to \infty} \frac{|\sP \cap S_d|}{|S_d|}$$
+\end{definition}
+The density of square-free integers would serve as a benchmark example for Theorem \ref{Bertini}. Not only does it provides the intuition for how the sieve argument works, but it itself could of rendered a corollary of Theorem \ref{Bertini}. 
+
+\section{Prelimiaries}
+\subsection{Zeta functions}
+Let us recall the definition of the zeta function: 
+$$ \zeta_X(s) =  \prod_{x \in |X|} (1 - N(x)^{-s})^{-1}$$where $|X|$ is the set of closed points in $X$ and $N(x)$ is the cardinality of the residue field at $x$. 
+\par We compute $\zeta(\Spec \IF_p[t], s)$, as an example. Let $X = \Spec \IF_p[t]$. A point $x \in |X|$ is represented by a monic irreducible polynomial $f$. It is not hard to discern that $N(x)$ is simply $p^{\deg f}$. Now we have
+\begin{align*}
+\zeta(\Spec \IF_p[t], s)  &= \prod_{f \text{irred}} (1 - p^{-s \deg f})^{-1} \\
+&= \prod_{f \text{irred}} \sum_{m=0}^\infty p^{-sm \, \deg f}\\
+&= \prod_{g \in \IF_p[t] \text{monic}} p^{-s \, \deg g}\\
+&= \prod_{d=0}^\infty p^{d - ds}\\
+&= (1 - p^{1 - s})^{-1}
+\end{align*}
+Now let me explain the third equation. Consider the degree $n$ term in the expansion of the product 
+$$ (\sum_{m_1=0}^\infty p^{-sm_1 \, \deg f_0})(\sum_{m_2=0}^\infty p^{-sm_2 \, \deg f_1})(\sum_{m_3=0}^\infty p^{-sm_3 \, \deg f_2}) \cdots$$ To construct a term what we do is to select a term in each factor, indexed by an irreducible polynomial, so that the degrees add up to $n$. Note that all polynomials factor into a product of irreducible ones, so the degree $n$ term simply counts the number of monic polynomials of degree $n$. 
+\subsection{Twisted sheaves}
+Let $X = \IP_A^n = \Proj S$ where $S = A[x_0, \cdots, x_n]$. For any $P \in X$ we define 
+$$ \sO_X(n)_P = \union_{d \ge 0}\{ \frac{f}{g} : f \in S_{d+n}, g \in S_d, g(P) \neq 0\}$$
+Note that they are not polynomial functions near $P$. However, they can readily produce functions. 
+\par On an open subset $U \subseteq X$ we define $$\sO_X(n)(U) = \bigcap_{P \in U} \sO_X(n)_P$$. In particular, on $\sU_i = D_+(x_i)$ we have 
+$$ \sO_X(n)(\sU_i) = \union_{d \ge 0} \{\frac{f}{x_i^d} : f \in S_{d + n}\}$$ We easily observe that $$\sO_X(\sU_i)(n) \to \sO_X(\sU_i) \text{ defined by } \varphi \mapsto \varphi \cdot x_i^{-n}$$
+gives an \textit{isomorphism} $\sO_X(\sU_i)(n) \iso \sO_X(\sU_i)$. I think of sections in $\sO_X(n)$ as ``primers of functions that carry the information of zeros and poles". For example, if $U \subseteq \sU_i$, then the above isomorphism gives a real function on $U$. If $U \subseteq \sU_j$ as well and we ``untwist" using $x_j$ instead, they we would obtain another function on $U$, which differ from the previous one by a unit in $\sO_X(U)^*$. 
+\par There are plenty of cases in which we do not care about ``differing be a unit". A classical senario that will come up later is the following: Let $P \in U$ be a point, where $U$ is a quasiprojective subscheme of $X$. Let $\fm_u$ be the ideal sheaf of $P$ on $U$ (note that this is different from the ideal sheaf of $P$ on $X$!) and $Y$ be the scheme of $U$ corresponding to the ideal sheaf $\fm_u^2$. Then given $f \in S_d = H^0(X, \sO_X(n))$, $H_f \cap U$ is singular at $P$ if and only if the restriction of $f$ to a section of $\sO_{Y}(d)$ is zero. 
+\subsection{Degree and base extension}
+For each $r$, $\IP^n$ over $\IF_q$ contains only finitely many closed points of degree $\le r$. Actually it suffices to check this on $\IA^n$. When $n = 1$, a closed point corresponds to an irreducible $f \in \IF_q[t]$ and we know there are only finitely many irreducible polynomials of a bounded degree. Now consider $\IA^2$. It suffices to show there are only finitely many closed points of bounded degree on a fiber over the natural projection $\IA^2 \to \IA^1$. Given $\fm \subseteq \IF_q[x_0, x_1]$, we have a two-step filtration 
+$$\IF_q[x_0, x_1]/\fm = (\IF_q[x_0, x_1]/\fm \cap \IF_q[x_0])/\fm^e \iso \IF_{q^e}[x_1]/\fm'$$ for some $\fm'$ maximal ideal in $\IF_{q^e}[x_1]$. If $\fm \cap \IF_q[x_0]$ remain fixed, i.e. we restrict our attention to the fiber over $\IF_q[x_0] \cap \fm$, then $\fm'$ is determined uniquely by $\fm$. Hence there are only finitely many of them of bounded degree. Conversely, we see that even $\IA^1$ contains points of arbitrarily large degree. 
+\par Now let $X \subseteq \IP^n$ be a quasiprojective subscheme over $\IF_q$. We show that if $\deg X \ge 1$, for every $n_0$ there exists a closed point $P$ in $X$ with $\deg P \ge n_0$. By what we have shown above, it is equivalent to showing that $X$ contains infinitely many closed points. We may assume that $X$ is affine of finite type over $\IF_q$ and Noether normalization tells us that there exists a surjection $X \to \IA^1$ if $\dim X \ge 1$. Hence $X$ contains infinitely many closed points. 
+\par Note that a morphism never increase the degree of a point. To make precise, let $f : X \to Y$ be a morphism of schemes of finite type over $\IF_q$, $P \in X$ be a closed point, then $\deg f(P) \le \deg P$. Since $P$ gives a morphism $\Spec K(P) \to X$, where $K(P)$ is the residue field of $P$ on $X$. Compose it with $f$ we get $\Spec K(P) \to Y$, which in particular, is equipped with an \textit{inclusion} $K(f(P)) \subseteq K(P)$. Hence $\deg f(P) \le \deg P$. 
+
+\section{The Main Result}
+Instead of proving the Bertini theorem over finite fields directly, we add a little twist to the statement and this will be the main result that we will prove:
+\begin{theorem}
+\label{main}
+Let $X$ be a quasiprojective subscheme of $\IP^n$ over $\IF_q$. Let $Z$ be a finite subscheme of $\IP^n$ and assume $U = X - (Z \cap X)$ is smooth of dimension $m\ge 0$. Fix a subset $T \subseteq H^0(Z, \sO_Z)$. Define 
+$$ \sP = \{ f \in S_{\mathrm{homog}} : H_f \cap U \textit{ is smooth of dimension }m-1, \textit{and }f|_Z \in T\}$$
+Then 
+$$ \mu(\sP) = \frac{\# T}{\# H^0(Z, \sO_Z)} \zeta_U(m + 1)^{-1} $$
+\end{theorem}
+Let me explain the notation $f|_Z$. Recall that on the level of sets $Z$ is a finite set of closed points. Suppose $Z_i \in Z$. We can readily untwist $f$ using $x_j$ to give a function near $i$ for some $j$ such that $Z_i \in D_+(x_j)$. For consistency we always choose the smallest possible such $j$, but this choice really does not matter. 
+\par As we can see this version of the theorem introduces two more variables: a finite subscheme $Z$, which we could think of as a finite set of points, and a subset $T \subseteq H^0(Z, \sO_Z)$. The idea is to loosen the condition that $H_f \cap X$ is smooth by taking off a finite set of points ($Z \cap X$), but retain some control over the local behavior of $f$ at $Z$. 
+\par Just as in the case of using Sieve method to compute the density of square free integers, the main goal of the proof is to justify the following exchange of order of taking limits: 
+$$\lim_{d \to \infty} \frac{\#(\sP \cap S_d)}{\# S_d} = \lim_{d \to \infty} \frac{\#((\cap_r \sP_r) \cap S_d)}{\# S_d} = \lim_{r \to \infty} \lim_{d \to \infty} \frac{\#(\sP_r \cap S_d)}{\# S_d}$$ that is 
+$$ \mu(\sP) = \lim_{r \to \infty} \mu(\sP_r)$$
+In other to do this we introduce the following two sets
+$$\Qmed = \union_{d \ge 0} \{ f \in S_d : \textit{$\exists P \in (H_f \cap U)^{bad}$ with } r \le \deg P \le \frac{d}{m+1}\}$$
+and 
+$$\Qhigh = \union_{d \ge 0} \{ f \in S_d : \exists P \in (H_f \cap U)^{bad} \textit{ with } \deg P > \frac{d}{m+1} \}$$
+where $P \in (H_f \cap U)^{bad}$ means that $P \in U$ and $H_f \cap U$ fails to be smooth of dimension $m - 1$ at $P$. $\Qmed$ and $\Qhigh$ are ``tail terms", and we see that $\sP \subseteq \sP_r \subseteq \sP \cup \Qmed \cup \Qhigh$. Hence $\uppermu(\sP)$ and $\lowermu(\sP)$ each differ from $\mu(\sP_r)$ by at most $\uppermu(\Qmed) + \uppermu(\Qhigh)$. 
+
+\section{Lemmas and Proofs}
+\subsection{Singular points of low degree}
+
+\begin{lemma}
+\label{surj}
+If $Y$ be a finite subscheme of $\IP^n$ over a field $k$, then the map 
+$$ \phi_d : S_d = H^0(\IP^n, \sO_{\IP^n}(d)) \to H^0(Y, \sO_Y(d))$$
+is sujective for $d \ge \dim H^0(Y, \sO_Y(d)) - 1$. 
+\end{lemma}
+\begin{proof}
+Let $\sI_Y$ be the ideal sheaf of $Y \subseteq \IP^n$. Then $\mathrm{coker}\, \phi_d \subseteq H^1(\IP^n, \sI_Y(d))$ which vanishes for $d >> 1$ by Theorem III.5.2b of Hartshorne. Thus $\phi_d$ will be surjective eventually. 
+Enlarge $\IF_q$ if necessary (why can we do this?) we may assume $Y \subseteq \IA^n = \{ x_0 \neq 0 \}$ and we dehomogenize at $x_0$. Then $\phi_d$ can be identified with a map $A_{\le d} \to B : = H^0(Y, \sO_Y)$. Let $B_i$ be the image of $A_{\le i}$ in $B$. Then we have a chain $0 = B_{-1} \subseteq B_0 \subseteq B_1 \subseteq \cdots $. If some $B_j = B_{j+1}$, then 
+$$ B_{j+2} = B_{j+1} + \sum_{i=1}^n x_i B_{j+1} =B_{j+1} + \sum_{i=1}^n x_i B_j = B_{j+1} $$ that is, the chain will stabilize after then. Since we know the chain \textit{has to} stabilize to $B$ and the dimension over $\IF_q$ has to increase for strict inclusions, we obtain the desired conclusion. 
+\end{proof}
+Now we show the following:
+$$\mu(\sP_r) = \frac{\# T}{\# H^0(Z, \sO_Z)} \prod_{P \in U_{<r}} (1 - q^{-(m+1)\deg P})$$
+as in the setting of the main theorem. 
+\par Let $U_{<r} = \{P_1, \cdots, P_s\}$. Let $\fm_i$ be the ideal sheaf of $P_i$ on $U$. Let $Y_i$ be the closed subscheme of $U$ defined by the ideal sheaf $\fm_i^2$ and $Y = \union Y_i$. For $f$ with $\deg f = d$, $H_f \cap U$ is singular at $P_i$ if and only if the restriction of $f$ to a section of $\sO_{Y_i}(d)$ is zero. Hence $\sP_r \cap S_d$ is the inverse image of 
+$$T \times \prod_{i=1}^s(H^0(Y_i, \sO_{Y_i}) - \{0\})$$
+under the $\IF_q$-linear composition 
+$$ \phi_d : S_d = H^0(\IP^n, \sO_{\IP^n}(d)) \to H^0(Y \cup Z, \sO_{Y \cup Z}(d)) \iso H^0(Z, \sO_Z) \times \prod_{i=1}^s H^0(Y_i, \sO_{Y_i}) $$
+Note that $Y$ and $Z$ are two \textit{disjoint} set of closed points, so $H^0(Y \cup Z, \sO_{Y \cup Z}(d))$ naturally splits to the above direct product after we untwist the sections individually for each point. The isomorphism is not canonical though since we may an arbitrary choice when untwisting. 
+\par Now we can invoke the previous lemma to see that when $d >> 1$, $\phi_d$ is surjective. Hence 
+$$ \frac{\#(\sP_r \cap S_d)}{\#(S_d)} = \frac{\#[T \times \prod_{i=1}^s (H^0(Y_i, \sO_{Y_i}) - \{0\})]}{\#[H^0(Z, \sO_Z) \times \prod_{i=1}^s H^0(Y_i, \sO_{Y_i})]}$$
+since the cardinality of $\ker \phi_d$ is cancelled out on the LHS. The RHS turns out to be the desired 
+$$\frac{\# T}{\# H^0(Z, \sO_Z)} \prod_{i=1}^s (1 - q^{-(m+1)\deg P_i})$$
+\subsection{Singular points of medium degree}
+We prove $\uppermu(\Qmed) \to 0$ as $r \to \infty$. 
+\begin{lemma}
+\label{medium}
+Let $U \subseteq \IP^n$ be a smooth quasiprojective subscheme of dimension $m \ge 0$ over $\IF_q$. If $P \in U$ is a closed point of degree $e \le d/(m+1)$, then the fraction $f \in S_d$ such that $H_f \cap U$ is not smooth of dimension $m - 1$ at $P$ equals $q^{-(m+1)e}$. 
+\end{lemma}
+\begin{proof}
+Let $\fm$ be the ideal sheaf of $P$ on $U$ and let $Y$ be the subsheme with ideal sheaf $\fm^2$. Then the kernel of $\phi_d : H^0(\IP^n, \sO(d)) \to H^0(Y, \sO_Y(d))$ is exactly those $f$ such that $H_f \cap U$ is not smooth of dimension $m - 1$ at $P$. By lemma \ref{surj}, $\phi_d$ is surjective. Then the conclusion follows from $\codim \phi_d = (m+1)e$. 
+\end{proof}
+We invoke the crude bound $|U(\IF_{q^e}| \le cq^{em})$ for some $c > 0$ depending only on $U$. Note that $U(\IF_{q^e})$ means the  set of \textit{geometric points} on $U$, i.e. morphisms $\Spec \IF_{q^e} \to U$. A point on a scheme may corresponds to many geometric points, so the bound is rather crude, but it suffices for our purposes here. 
+\begin{align*}
+\frac{|\Qmed \cap S_d|}{|S_d|}& \le \sum_{e = r}^{\lfloor d /(m+1) \rfloor} |\{P \in U : \deg P = e\}| q^{-(m+1)e} \\
+&\le \sum_{e = r}^{\lfloor d /(m+1) \rfloor} |U(\IF_{q^e})| q^{-(m+1)e} \\
+&\le  \sum_{e = r}^{\infty} cq^{em}q^{-(m+1)e}\\
+&= \frac{cq^{-r}}{1 - q^{-1}}
+\end{align*}
+Then the conclusion follows. 
+\subsection{Singular points of high degree}
+As promised, now we want to prove $\uppermu(\Qhigh) = 0$, but first we prove a simple lemma:
+\begin{lemma}
+Let $P$ be a closed point of degree $e$ in $\IA^n$ over $\IF_q$. Then the fraction of $f \in A_{\le d}$ that vanishes on $P$ is at most $q^{-\min(d+1, e)}$. 
+\end{lemma}
+\begin{proof}
+The idea is very simple: $P$ corresponds to a maximal ideal $\fm$ in $\IF_q[t_1, \cdots, t_n]$, and $\deg P$ is large means $\fm$ is small. To be precise, the isomorphism $\IF_q[t_1, \cdots, t_n]/\fm \to \IF_{q^e}$, which in particular is a $\IF_q$-linear map, restricts to a map $\fm/(A_{\le d} \cap \fm) \to \IF_{q^e}$. Then the conclusion is obvious. 
+\end{proof}
+\par A quasiprojective subscheme of $\IP^n$ is quasicompact, it suffices to show this for a neighborhood of an arbitrary point. We first assume $U \subseteq \IA^n$ is affine. Given $u \in U$, choose a system of local parameters $t_1, \cdots, t_n$ such that $t_{m+1} = t_{m+2} = \cdots = t_n = 0$ defines $U$ locally at $u$. Hence $dt_i$'s form a basis for $\Ohm_{\IA^n/\IF_q, u}$ and let $\p_i $'s be the dual basis for $\sT_{\IA^n/\IF_q, u}$. Choose $s \in A$ to clear the denominators so that each $D_i = s\p_i$ gives a global derivation $A \to A$. $\Ohm_{\IA^n/\IF_q, u}$ is locally free since $U$ is smooth. So we may further restrict $U$ so that $\Ohm_{\IA^n/\IF_q, u}$ is actually free and $s$ is invertible on $U$. 
+\par Now $H_f \cap U$ fails to be smooth of dimension $m - 1$ at a point $P \in U$ if and only if $f(P) = (D_1 f)(P) = \cdots = (D_m f)(P)$. For future use we define $$W_i = U \cap \{ D_1 f = \cdots D_i f = 0 \}$$. Let $T_d = \{ f \in A_{\le d} : \dim U \cap W_m = 0 \textit{ and } H_f \cap W_m \cap U_{> d/(m+1)} = \emptyset\}$. Then $T_d \subseteq A_{\le d} - (A_{\le d} \cap \Qhigh)$. We will show that $|T_d|/|A_{\le d}| \sim 1 - o(1)$ as $d \to \infty$. This would suffice for our conclusion although the inclusion might be strict. 
+\par Here I am trying to rewrite Poonen's decoupling trick to make the central argument clearer to myself, but they are really the same. Set $F = A_{d}, G_i = A_{\le \gamma}, H = A_{\le \eta}$ where 
+$$ \tau = \max_i(\deg t_i), \gamma = \lfloor \frac{d - \tau}{p} \rfloor, \eta = \lfloor \frac{d}{p} \rfloor $$
+Then we consider the following map 
+$$ \varphi : \sD : = F \times \prod_{i=1}^n G_i \times H \to A_{\le d} $$ defined by
+$$\varphi(f_0, g_1, \cdots, g_m, h) = f_0 + g_1^p t_1 + \cdots + g_m^p t_m + h^p$$
+To simplify notation we may write $\wt{g}$ in place of $(g_1, \cdots, g_m)$ later. $\varphi$ is obviously linear and surjective so 
+$$ \frac{|\{f \in A_{\le d} - \Qhigh\}|}{|A_{\le d}|} = \frac{|\{(f_0,\wt{g}, h) \in \sD : \varphi(f_0,\wt{g}, h) \in A_{\le d} - \Qhigh \}|}{| \sD |}$$
+The point of this complication is that it is easier to check whether $\varphi(f_0, \wt{g}, h) \in A_{\le d} - \Qhigh$ on the level of $\sD$. Note that $D_i f = (D_i f_0) + g_i^p s$ so in particular $D_i f$ depends only on $g_i$ once $f_0$ is fixed. 
+\textit{Step 1:} For any fixed $f_0$, we give a bound for the fraction of $(g_0, \cdots, g_m)$ such that $\dim W_m = 0$.
+\par We observe that $\dim W_m = 0$ if and only if each $D_i f$ cuts out a fresh dimension, so we proceed stepwise: Suppose $g_1, \cdots, g_i$ are chosen such that $\dim W_i \le m - i$ what is the fraction of $g_{i+1}$ such that $\dim W_{i+1} \le m - i - 1$? Suppose $V_1, \cdots, V_l$ are the $(m-i)$-dimensional $\IF_q$ irreducible components of $(W_i)_\mathrm{red}$. We obtain a bound on $l$ by applying Bezout theorem: 
+$$l \le (\deg \overline{U})(\deg D_1 f) \cdots (\deg D_i f)$$
+where $\overline{U}$ is the projective closure of $U$, but all that we care is that it is a constant independent of $d$. We can easily see the RHS is bounded by $c_0 d^i$ for some constant $c_0$.
+
+Given $V_k$ we want to bound
+$$ G_{i+1, k}^{bad} = \{ g_{i+1} \in G_{i+1} : D_{i+1} f = (D_{i+1} f_0) + g_{i+1}^p s \text{ vanishes identically on $V_k$} \} $$
+If $g_{i+1}, g_{i+1}' \in G_k^{bad}$, then $g_{i+1} - g_{i+1}'$ vanishes identically on $V_k$. Hence if $G_{i+1, k}^{bad} \neq \emptyset$, it is a coset of the kernel of the restriction map $\res_k : G_{i+1} = A_{\le \gamma} \to \Gamma(V_k, \sO_{V_k})$. $\codim \ker \res_k = \dim \im \res_k \ge \gamma + 1$ since some $x_j$ do not vanish on $V_k$ (and hence none of nonzero polynomial in $x_j$ vanishes identically on $V_k$). (Recall that we have already dehomogenized from $\IP^n$.) Therefore we conclude if $\dim W_i \le m - i$
+$$\frac{|\{g_{i+1} \in G_{i+1} : \dim W_{i+1} \le m - i - 1 \}|}{|G_{i+1}|} = \frac{|\cup_k G_{i+1, k}^{bad}|}{|G_{i+1}|} \le l q^{\gamma + 1} \sim o(1)$$ as $d \to \infty$. 
+
+\textit{Step 2:} If $f_0, \wt{g}$ satisfies the above condition, we give a bound for the fraction of $h$ such that $H_f \cap W_m \cap U_{> d/(m+1)}$.  
+This step is easier. Use the same Bezout's argument with $W_m$ we see that $|W_m| \sim O(d^m)$. For $P \in W_m$, we define $H_P^{bad}$ anagolously, then it is a coset of the kernel of $\ev_P : H = A_{\le eta} \to k(P)$. If $P > d/(m+1)$, then the lemma says that $|H_P^{bad}|/|H| \le q^{-v}$, where $v = \min (\eta + 1, d/(m+1))$. Hence
+$$\frac{|\{h \in H : H_f \cap W_m \cap U_{> d/(m+1)} \neq \emptyset \}|}{|H|} \le |W_m| q^{-v} \sim O(d^m q^{-v}) = o(1)$$ as $d \to \infty$. 
+
+Step 1 and 2, together with previous discussion, shows that 
+$$ \frac{|\{(f_0, \wt{g}, h) \in \sD: \varphi(f_0, \wt{g}, h) \not\in \Qhigh|}{|\sD|} \sim \prod_{i=1}^m (1 - o(1))(1 - o(1)) = 1 - o(1) $$
+In case in is confusing, recall that $\varphi(\sD) = S_d$ and $\sD$ depends on $d$. That is, we used a family $\sD_d$ but we suppressed the supscript before. 
+
+\section{Applications}
+\subsection{Anti-Bertini theorem}
+Theorem \ref{main} yields the following theorem, which Poonen calls the Anti-Bertini theorem:
+\begin{theorem}
+\label{anti}
+Given a finite field $\IF_q$ and integers $n \ge 2, d \ge 1$, there exists a smooth projective geometrically integral hypersurface $H_g \subseteq \IP^n$ over $\IF_q$ such that for each $f \in S_1 \cup \cdots \cup S_d$, $H_f \cap H_g$ fails to be smooth of dimension $n - 2$. 
+\end{theorem}
+\begin{proof}
+Let $H^{(1)}, \cdots, H^{(l)}$ be a list of the $H_f$ arising from $f \in S_1 \cup \cdots \cup S_d$. For each $i, 1\le i \le l$, we choose a point $P_i \in H^{(i)}$ distinct from $P_j$ for $j < i$. In Theorem \ref{main}, we take $X = \IP^n$. Now we use exactly the same trick as in the proof of Lemma \ref{medium}. Let $\fm_i$ be the ideal sheaf of $P_i$ and let $Y_i$ be the subscheme corresponding to $\fm_i^2$. Take $Z = \cup Y_i$. $Z$ holds the information of the tangent space of $H_g$ at $P_i$'s. Let $T$ be the subset of sections whose tangent space at $P_i$ coincides with that of $H^{(i)}$. Note that we care concerned it there is a $g$ whose \textit{image} in $T$ has the desired tangent spaces, but $T$ itself is nonempty since we may choose components in $H^0(Z, \sO_Z) = \prod_i H^0(Y, \sO_Y)$ separately. As in Theorem \ref{main}, we define 
+$$ \sP = \{ g \in S_\mathrm{homog} : H_g \cap U \textit{ is smooth of dimension }m - 1 \textit{ and }f\mid_Z \in T \}$$
+Note that $H_g \in \sP$ is guaranteed to be smooth on $U = \IP^n - Z$ directly, we know they are also smooth on $Z$ simply because we required the tangent space at these points to be of dimension $n - 1$. Therefore hypersurfaces in $\sP$ are smooth actually everywhere. 
+\end{proof}
+\begin{remark}
+The above proof shows it is useful to retain some control over the local behavior using $T$ as in Theorem \ref{main}. In my interpretation of Poonen's proof is correct, then I guess it is more rigorous to say we pick $P_i$'s at which $H^{(i)}$ is \textit{smooth} of dimension $n - 1$. It is always possible to do so it does not matter that much though. 
+\end{remark}
+
+\begin{conjecture}
+Let $X$ be an integral quasiprojective subscheme of $\IP_\IZ^n$ that is smooth over $\IZ$ of relative dimension $r$. There exists $c > 0$ such that if $d, p >>0$, 
+$$\frac{\#\{f \in S_{d,p} : \dim(H_f \cap X_p)_\sing \ge 1\}}{\# S_{d,p}} < \frac{c}{p^2}$$
+\end{conjecture}
+Recall that $\Spec \IF_p \to \Spec \IZ$ is a closed immersion and closed immersion is stable under base extension. Therefore $X_p \to X$, and hence $X_p \to \IP_\IZ^n$ is a closed immersion. 
+\par new paragraph
+
+
+\section{Reflections}
+\subsection{Degree and smoothness}
+I think the driving force for Theorem \ref{main} to be true is encoded in Lemma \ref{surj}. 
+
+Let us first look back at the benchmark example. For $p, q$ two different primes, CRT tells us that 
+$$ \IZ \onto \IZ/p^2\IZ \times \IZ/q^2 \IZ $$ The surjectivity means that ``modulo $p^2$" and ``modulo $q^2$" are independent events. Clearly, say $\IZ \to \IZ/4\IZ \times \IZ/6\IZ$ is not surjective since it is impossible to be $0 \mod 4$ and $3 \mod 6$. CRT treats $\IZ$ as a whole so are actually saved of the trouble to take the limit as in the definition of $\mu(S_r)$ when computing it. However, if we think about $\mu(S_r)$ in terms of its definition we do find that ``divisible by $p^2$" and ``divisible by $q^2$" are \textit{not} independent events for $\IN \cap [1, B]$ instead of all of $\IN$. For example among numbers $1, 2, \cdots, 10$, ``divisible by $2$" does tell us something about ``divisible by $3$" since the probability that a randomly chosen number is $6$ becomes higher once conditioned on ``divisible by $2$". However, we see that this interference vanishes once $[1, B]$ gets closer and closer to all of $\IN$. In short, CRT first justifies our intuition that ``divisible by $p^2$" and ``divisible by $q^2$" are independent. Then we justify intuition when we generalize to infinitely many primes. 
+
+If we compare the two definitions of $\mu$, we find that, roughly speaking, ``asympotically good for $B \to \infty$" is replaced by ``asympotically good for $d \to \infty$". 
+
+Invoking the powerful theorem by Serre is certainly to quick way to prove Lemma \ref{surj} in great generality. However, I would like to point out my guess of the intuitive reason that this should be true. Recall that if $Y \to \Spec k$ is a finite morphism, then $Y$ is a finite union of points with discrete topology, and the residue field of each of the points in $Y$ is a finite extension of $k$. By Nullstellensatz $Y$ is actually a finite set of \textit{closed} points on $\IP^n$ and again we further assume that $Y \subseteq \IA^n_0$. In the special case when $k$ is algebraically closed and $n = 1$ we see that the surjectivity can be shown directly by Lagrange interpolation. 
+
+As the degree of a polynomial gets higher, we can infer less and less of the value of a point out of its values at other points. And I think this is the intuitive reason that allows us to think of ``smooth at P" and ``smooth at Q" as being independent events for $H_f$, $\deg f >> 0$ from the first place. Overall, Lemma \ref{surj} assumes a function similar to that of CRT in the proof. 
+ 
+
+\subsection{Medium degree vs. high degree}
+I am curious why the degrees were divided in such way. In this section I am trying to understand what such division into cases is necessary or advisable. 
+\subsection{Poonen's decoupling trick}
+I am trying to make the decoupling trick appear in a more natural way, since at first I found the trick completely magic. We make sure that all $f$ will be covered by inserting $f_0$, so $f_0$ could be seen as the ``base" and those $g_i$'s and $h$ appear at first to be pretty arbitrary pertubations, in the sense that they only affect certain coefficients of $f_0$, and the aesthetic appeal is further hurt by $\lfloor \, \rfloor$ operation. Throughout the proof we worked hard on $g_i$'s and $h$ and then harvest a powerful conclusion on $f$. That is why I found the proof even a bit striking at first.  
+
+Let us the recall overall strategy in Poonen's decoupling trick. From a vector space $A$, we constructed another vector $\sD$, and two projections $p_1$ and $\varphi$:
+\begin{center}
+\begin{tikzcd}[column sep=large]
+\sD \arrow{d}{p_1}  \arrow{rd}{\varphi} \\
+  F \arrow{r}{=} 
+    & A
+\end{tikzcd} 
+\end{center}
+where $F$ is simply just another copy of $A$. Now there is a subset $T \subseteq A$ and we are interested in bounding the fraction $|T|/|A|$. However, we bounded the fraction 
+$$ \frac{|p_1^{-1}(P) \cap \varphi^{-1}(A)|}{|p_1^{-1}(P)|}$$
+for a generic $P \in F$. 
+\par This senario can appear in a differential geometric setting as well. Consider the tangent bundle $TS^2$ of $S^2$. There are two natural ways to project $TS^2 \to S^2$. One is of course, straightforward $(p, v) \mapsto p$. The other one is to use the exponential map. Actually to obtain a better analogy we may feel free to replace $TS^2$ by any sub-bundle ot it. Now consider a subset $T \subseteq S^2$. To grab distribution of $T$ directly is hard, but we have some information of the orbits of a point under certain classes of variations (encoded by the sub-bundle), then we may go to the bundle and reconstruct the information on $T$. 
+\par Under this point of view I may call it ``twisted scanning trick" and I see a possibility that we can generalize this idea. 
+\subsection{Possible directions of generalization}
+We often construct new schemes out of old ones. How does $\mu(\sP)$ behave under classical constructions? Here are some questions that I can think of 
+\begin{enumerate}
+\item Say $X$ is a curve with a node, so it is in particular smooth. Can we obtain information on $\mu(\sP_X)$ from $\mu(\sP_{X'})$ where $X'$ is the blow up at the singularity? Well I guess the singular case was not treated in classical Bertini either. 
+\end{enumerate}
+Some possible directions for future work may have a computational concern. 
+\begin{enumerate}
+\item Is there an incidence that for a smooth $X$ as in Theorem \ref{Bertini}, $\mu(\sP)$ is easier to compute from definition, or via other means, than $\zeta_X(m + 1)^{-1}$?
+\item If $\mu(\sP)$ behaves better than $\zeta_X(m+1)^{-1}$ for certain classical constructions, at least when doing proofs, then indeed it is not impossible to make inference backwards. Plus to compute $\zeta_X(m+1)^{-1}$ we may have to know the exact distribution of degrees of points, but it would then allow us to compute $\zeta_X(s)$ for arbitrary $s$. It is possible that $s = m + 1$ happens to behave well in some circumstances?
+\end{enumerate}
+
+\subsection{Intrinsic?}
+As Poonen has remarked, one observation of Theorem \ref{Bertini} is that $\mu(\sP)$ is intrinsic in the sense that it is independent of the choice of embedding $X \into \IP^n$. 
+Can we see the fact without the full power of Theorem \ref{Bertini}?
+
+We note that $H_f \cap X$ is in particular a subscheme of $X$? Is there an intrinsic description of ``all possible hypersuface sections when embedded in a projective space"? I think it makes an intuitive sense. Suppose $X \subset \IA^n$ is affine, then $H_f \cap X$ could be understood as the subscheme cut out by the untwisting of $f$, which restricts to a regular function on $X$. But once $X \into \IP^n$, $\sO_{\IP^n} \to \sO_X$ is surjective anyways.  
+\subsection{Questions}
+\begin{enumerate}
+\item I got confused with the $U$ as in Theorem \ref{main} when I was writing the proof for Theorem \ref{anti}. Do we first think of $U$ as the open set on $X$ at first and then give it the open subscheme structure. 
+\end{enumerate}
+
+\end{document}

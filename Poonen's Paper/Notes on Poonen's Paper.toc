@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Prelimiaries}{3}
+\contentsline {subsection}{\numberline {2.1}Zeta functions}{3}
+\contentsline {subsection}{\numberline {2.2}Twisted sheaves}{4}
+\contentsline {subsection}{\numberline {2.3}Degree and base extension}{5}
+\contentsline {section}{\numberline {3}The Main Result}{5}
+\contentsline {section}{\numberline {4}Lemmas and Proofs}{6}
+\contentsline {subsection}{\numberline {4.1}Singular points of low degree}{6}
+\contentsline {subsection}{\numberline {4.2}Singular points of medium degree}{8}
+\contentsline {subsection}{\numberline {4.3}Singular points of high degree}{8}
+\contentsline {section}{\numberline {5}Applications}{11}
+\contentsline {subsection}{\numberline {5.1}Anti-Bertini theorem}{11}
+\contentsline {section}{\numberline {6}Reflections}{12}
+\contentsline {subsection}{\numberline {6.1}Degree and smoothness}{12}
+\contentsline {subsection}{\numberline {6.2}Medium degree vs. high degree}{13}
+\contentsline {subsection}{\numberline {6.3}Poonen's decoupling trick}{13}
+\contentsline {subsection}{\numberline {6.4}Possible directions of generalization}{14}
+\contentsline {subsection}{\numberline {6.5}Intrinsic?}{14}
+\contentsline {subsection}{\numberline {6.6}Questions}{14}
