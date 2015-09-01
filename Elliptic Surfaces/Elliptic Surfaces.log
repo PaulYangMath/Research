@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  23 AUG 2015 16:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  31 AUG 2015 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,18 +527,18 @@ Package: xy 2012/05/24 Xy-pic version 3.8.8
 loaded)) (./Elliptic Surfaces.aux)
 \openout1 = `"Elliptic Surfaces.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 156.
-LaTeX Font Info:    ... okay on input line 156.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
  ABD: EveryShipout initializing macros
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -597,79 +597,66 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 156.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 157.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 156.
+LaTeX Font Info:    Try loading font information for U+msa on input line 157.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 156.
+LaTeX Font Info:    Try loading font information for U+msb on input line 157.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 156.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 157.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Package xypdf Info: Line width: 0.47998pt on input line 156.
+Package xypdf Info: Line width: 0.47998pt on input line 157.
  [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 <planecubics.pdf, id=20, 469.755pt x 361.35pt>
 File: planecubics.pdf Graphic file (type pdf)
  <use planecubics.pdf>
-Package pdftex.def Info: planecubics.pdf used on input line 189.
+Package pdftex.def Info: planecubics.pdf used on input line 190.
 (pdftex.def)             Requested size: 397.48499pt x 305.75949pt.
  [2 <./planecubics.pdf>] [3] [4]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 248.
+(amsmath)                 on input line 249.
 
-[5]
-Overfull \hbox (11.88066pt too wide) in paragraph at lines 299--300
-[]\OT1/cmr/bx/n/12 Lemma 4.3. []\OT1/cmr/m/it/12 Let $\OML/cmm/m/it/12 P \OMS/c
-msy/m/n/12 2 \U/msb/m/n/12 P[]$ \OT1/cmr/m/it/12 be a point of de-gree $\OML/cm
-m/m/it/12 e$\OT1/cmr/m/it/12 . Then map $\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 (\
-U/msb/m/n/12 P[] \OMS/cmsy/m/n/12 ^^B \U/msb/m/n/12 P[]\OML/cmm/m/it/12 ; \OMS/
-cmsy/m/n/12 O\OT1/cmr/m/n/12 (3\OML/cmm/m/it/12 ; d\OT1/cmr/m/n/12 )) \OMS/cmsy
-/m/n/12 !
- []
-
-[6] [7] [8] [9] [10] [11] [12] [13] [14] (./Elliptic Surfaces.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] (./Elliptic Surfaces.aux) ) 
 Here is how much of TeX's memory you used:
- 13490 strings out of 493315
- 241038 string characters out of 6137904
- 329363 words of memory out of 5000000
- 16643 multiletter control sequences out of 15000+600000
+ 13491 strings out of 493315
+ 241040 string characters out of 6137904
+ 329370 words of memory out of 5000000
+ 16644 multiletter control sequences out of 15000+600000
  17417 words of font info for 77 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  56i,14n,72p,6869b,898s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
-sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
-al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
-texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
-e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive
-/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/tex
-live/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Elliptic Surfaces.pdf" (14 pages, 215704 bytes).
+</usr/l
+ocal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/loca
+l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texliv
+e/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2
+013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2013/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2013/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2013/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2013
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on "Elliptic Surfaces.pdf" (14 pages, 217132 bytes).
 PDF statistics:
  119 PDF objects out of 1000 (max. 8388607)
  86 compressed objects within 1 object stream

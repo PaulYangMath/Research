@@ -1,0 +1,208 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{mathrsfs} 
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym} 
+%\usepackage{epsfig}
+%\usepackage{graphicx}
+%\usepackage[dvips]{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+
+
+\usepackage[matrix,tips,graph,curve]{xy}
+
+\newcommand{\mnote}[1]{${}^*$\marginpar{\footnotesize ${}^*$#1}}
+\linespread{1.065}
+
+\makeatletter
+
+\setlength\@tempdima  {5.5in}
+\addtolength\@tempdima {-\textwidth}
+\addtolength\hoffset{-0.5\@tempdima}
+\setlength{\textwidth}{5.5in}
+\setlength{\textheight}{8.75in}
+\addtolength\voffset{-0.625in}
+
+\makeatother
+
+\makeatletter 
+\@addtoreset{equation}{section}
+\makeatother
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{conjecture}[equation]{Conjecture}
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{proposition}[equation]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{definitions}[equation]{Definitions}
+%\theoremstyle{remark}
+
+\newtheorem{remark}[equation]{Remark}
+\newtheorem{remarks}[equation]{Remarks}
+\newtheorem{exercise}[equation]{Exercise}
+\newtheorem{example}[equation]{Example}
+\newtheorem{examples}[equation]{Examples}
+\newtheorem{notation}[equation]{Notation}
+\newtheorem{question}[equation]{Question}
+\newtheorem{assumption}[equation]{Assumption}
+\newtheorem*{claim}{Claim}
+\newtheorem{answer}[equation]{Answer}
+%%%%%% letters %%%%
+
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}}
+
+\newcommand{\IA}{\mathbb{A}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IF}{\mathbb{F}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IZ}{\mathbb{Z}}
+
+\newcommand{\sD}{\mathcal{D}}
+\newcommand{\sI}{\mathcal{I}}
+\newcommand{\sO}{\mathcal{O}}
+\newcommand{\sP}{\mathcal{P}}
+\newcommand{\sQ}{\mathcal{Q}}
+\newcommand{\sT}{\mathcal{T}}
+\newcommand{\sU}{\mathcal{U}}
+
+\newcommand{\shF}{\mathscr{F}}
+\newcommand{\shG}{\mathscr{G}}
+%%%%%%% macros %%%%%
+
+%% my definitions %%%
+
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Trace}{\mathrm{Trace}\,}
+\newcommand{\rank}{\mathrm{rank}}
+\renewcommand{\deg}{\mathrm{deg}\,}
+\newcommand{\Spec}{\rm Spec\,}
+\newcommand{\Proj}{\rm Proj\,}
+\newcommand{\Sym}{\mathrm{Sym \,}}
+\newcommand{\Span}{\mathrm{Span \,}}
+\renewcommand\dim{{\rm dim\,}}
+\newcommand{\codim}{{\rm codim\,}}
+\renewcommand\det{{\rm det\,}}
+\newcommand{\im}{{\rm Im\,}}
+
+
+\newcommand\iso{{\, \simeq \,}} 
+\newcommand\tensor{{\otimes}}
+\newcommand\Tensor{{\bigotimes}} 
+\newcommand\union{\bigcup} 
+\newcommand\onehalf{\frac{1}{2}}
+\newcommand\trivial{{\mathbb I}}
+\newcommand\wb{\overline}
+
+%%%%%Delimiters%%%%
+
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+
+%\renewcommand{\(}{\left(}
+%\renewcommand{\)}{\right)}
+
+
+%%%% Different kind of derivatives %%%%%
+
+\newcommand{\delbar}{\bar{\partial}}
+\newcommand{\pdu}{\frac{\partial}{\partial u}}
+%\newcommand{\pd}[1][2]{\frac{\partial #1}{\partial #2}}
+
+%%%%% Arrows %%%%%
+\newcommand{\induce}{\rightsquigarrow}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\tto}{\longmapsto}
+\def\llra{\longleftrightarrow}
+\def\wt{\widetilde}
+\def\wtilde{\widetilde}
+\def\what{\widehat}
+\def\bf{\textbf}
+\def\it{\textit}
+%%%%%%%%%%%%%%%%%%% Ziquan's definitions %%%%%%%%%%%%%%%%%%%%
+\newcommand{\Ann}{\mathrm{Ann}}
+\newcommand{\height}{\mathrm{height \,}}
+\newcommand{\Div}{\mathrm{Div}}
+\newcommand{\sE}{\mathcal{E}}
+\newcommand{\p}{\partial}
+\newcommand{\Ohm}{\Omega}
+\newcommand{\w}{\omega}
+\newcommand{\sing}{\mathrm{sing}}
+%%%%%%%%%%%%% new definitions for the positive mass paper %%%%%%%%%
+
+\newcommand{\sperp}{{\scriptscriptstyle \perp}}
+\newcommand{\Qmed}{\mathcal{Q}_r^\mathrm{medium}}
+\newcommand{\Qhigh}{\mathcal{Q}^\mathrm{high}}
+\newcommand{\uppermu}{\overline{\mu}}
+\newcommand{\lowermu}{\underline{\mu}}
+\newcommand{\res}{\mathrm{res}}
+\newcommand{\ev}{\mathrm{ev}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\Prob}{\mathrm{Prob}}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%
+\begin{document}
+%
+
+\title{Simply Ramified Curves on Ruled Surfaces}
+\author{Ziquan Yang}
+
+
+\date{\today}
+
+\maketitle
+
+ 
+%\setcounter{secnumdepth}{1} 
+
+\setcounter{section}{0}
+
+% After I sat down and started to think about the problem on a generic ruled surfaces, I soon realized that the first thing I need is a parametrization of curves. 
+
+% For $\IP^1 \times \IP^1$ we can talk about bidegree. Without resorting to bidegrees, we can set $A = \sO_{\IP^1 \times \IP^1} (1, 0)$ and $E = \sO_{\IP^1 \times \IP^1} (0, 1)$ so bidegree $(n, d)$ is the same as $nA + dE$. Since we don't have a notion of bidegree on a ruled surface (or do we?) in general, I would like to find appropriate divisors. Let $\pi : X \to C$ be a ruled surface, I can find a divisor $A$ on $X$ such that $A \cdot X_y = 1$, where $X_y$ is a fiber. As Hartschorne has remarked, $A \cdot X_{y'} = 1$ if we replace $X_y$ by $X_{y'}$. The hard part is to find the other divisor that assumes the role of $E$. I am thinking of making use of a section $\sigma : C \to X$. I would like to find a divisor $E$ such that $E \cdot X_y = 0$ for a fiber $X_y$, and $E \cdot \sigma(C) = 1$. Then I can talk about curves given by $f \in H^0(X, \sO(nA + dE))$, which I think is the analogue of ``bidegree $(n,d)$". 
+
+% I would still like to think of sections in $H^0(X, \sO(nA + dE))$ locally as ``polynomials of bidegree $(n, d)$". That means, if $y \in C$ is a point and $U \iso \IA^1 \subseteq C$ is an affine neighborhood containing the point, then the restriction of $f$ on $\pi^{-1}(U)$ is of the form $\sum p(x_0, x_1) q(t)$, $\deg p = n, \deg q = d$, where $((x_0, x_1), t)$ is the coordiante we give to $\pi^{-1}(U) \iso \IP^1 \times \IA^1$. 
+
+% What do you think is the correct way of formulating it? 
+
+For $X = \IP^1 \times \IP^1$ over $\IF_q$ we proved the following:
+\begin{theorem}
+Let $X = \IP^1 \times \IP^1$, $A = \sO_X(1, 0)$, $E = \sO_X(0, 1)$, $n = 3$ and $R_{n,d} = H^0(X, \sO_X(nA + d E))$. Suppose $p = \mathrm{char } \IF_q \neq 2$. Let $\pi : X \to \IP^1$ be the projection to the second component. Then 
+$$\lim_{d \to \infty} \frac{|f \in R_{n, d} : H_f \textit{ is simply ramified w.r.t. }\pi|}{|R_{n,d}|} = \zeta_{\IP_{\IF_q}}(2)^{-2} $$ 
+\end{theorem}
+
+We would like to extend the result to ruled surfaces. The first thing that we need to do is to find an appropriate set $R_{n, d}$ of sections, so that we may end up with something like:
+
+\begin{theorem}
+Let $\pi : X \to C$ be a ruled surface. 
+$$\lim_{d \to \infty} \frac{|f \in R_{n, d} : H_f \textit{ is simply ramified w.r.t} \pi|}{|R_{n,d}|} = \zeta_{\IP_{\IF_q}}(2)^{-2} $$
+\end{theorem}
+
+
+
+
+
+\end{document}
