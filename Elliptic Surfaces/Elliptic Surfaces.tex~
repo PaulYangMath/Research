@@ -67,6 +67,7 @@
 
 \newcommand{\IA}{\mathbb{A}}
 \newcommand{\IN}{\mathbb{N}}
+\newcommand{\IF}{\mathbb{F}}
 \newcommand{\IP}{\mathbb{P}}
 \newcommand{\IZ}{\mathbb{Z}}
 
@@ -133,6 +134,7 @@
 \newcommand{\Div}{\mathrm{Div}}
 \newcommand{\sE}{\mathcal{E}}
 \newcommand{\p}{\partial}
+\newcommand{\grad}{\mathrm{grad}\,}
 %%%%%%%%%%%%% new definitions for the positive mass paper %%%%%%%%%
 
 \newcommand{\sperp}{{\scriptscriptstyle \perp}}
@@ -176,11 +178,11 @@ Just like the genus of a curve tells us the degree of the ramification divisor f
 $$ e(Y^0) = e(X^0 ) \cdot e(F) $$ 
 Since $e(F) = 0$ we have that $e(Y^0) = 0$. Now since $Y = Y^0 \coprod \pi^{-1}(C)$, we see that $e(Y) = e(Y^0) + e(\pi^{-1}(C)) = e(\pi^{-1}(C))$. Note that $C$ is a finite set of points, and hence $\pi^{-1} (C)$ is a disjoint union of singular cubic curves. 
 
-\begin{figure}[h!]
-  \centering
-      \includegraphics[width=1.0\textwidth]{planecubics}
-  \caption{Cubic plane curves and their Euler characteristics \cite{Pic}}
-\end{figure}
+%\begin{figure}[h!]
+%  \centering
+%      \includegraphics[width=1.0\textwidth]{planecubics}
+%  \caption{Cubic plane curves and their Euler characteristics \cite{Pic}}
+%\end{figure}
 From the table we see that if $f \in D$, then $e(H_f)$ is exactly the number of points in $\IP^1$ over which the fibers are singular. In this sense, these hypersurfaces are analogues of simply ramified curves in $\IP^1 \times \IP^1$. 
 
 Now we compute $e(H_f)$. In fact we do a more general computation, since it is not harder. Let $H_f \subseteq \IP^2 \times \IP^1$ be a smooth hypersurface of bidegree $(n, d)$. We denote the projections of $\IP^2 \times \IP^1$ onto the first and second components by $\pi_1, \pi_2$ respectively. Let $H_1$ be a hyperplane of $\IP^2$ and $H_2$ be a hyperplane of $\IP^1$. We think of them as generators of the Chow groups of their respective projective schemes. We define 
@@ -243,7 +245,26 @@ If $f$ satisfies the above equations, then clearly so does any $af$ for $a \in k
 \end{proof}
 Let $G'$ be the image of $p_1 : G \to \IP^1 \times \IP V$. By $G'_T$ we denote the fiber over $T \in \IP^1$ under the projection $\IP^1 \times \IP V \to \IP^1$. 
 
+\subsection{Fibers}
+This part concerns the probability that a randomly chosen hypersurface is ``good" at a single fiber, i.e. it is either smooth, or is a nodal curve but the hypersurface is smooth at the node. 
 
+\begin{lemma}
+Consider the vector space $H^0(\IP^2_{\IF_q}, \sO(3))^2$, we say that a pair $(F_1, F_2)$ is good if, it satisfies one the following conditions:
+\begin{enumerate}
+\item $F_1$ describes a smooth curve in $\IP_{\IF_q}$.
+\item $F_1$ describes a nodal curve but $F_2$ does not vanish at the node.
+\end{enumerate}
+Then the fraction of good pairs is lower bounded by:
+\end{lemma}
+\begin{proof}
+Let $D \subseteq \IP^9 = \IP H^0(\IP^2, \sO(3))$ be the discriminant locus that parametrizes singular cubic curves. $D$ is the image of 
+$$ \wt{D} = \{ (P, F) \in \IP^2 \times \IP H^0(\IP^2, \sO(3)) : F(P) =0 \text{ and } \grad F|_P = 0 \}$$ under the projection map to $\IP^9$. It is not hard to observe that $\dim D = 8$. Let $D_{red}, D_{cusp}, D_{nod}$ be subschemes of $D$ that parametrize reducible, cuspidal and nodal curves respectively. We will give an upper bound on the complement instead, i.e. pairs $(F_1, F_2)$ that satisfies one of the following:
+\begin{enumerate}
+\item $F_1 \in D_{red} \union D_{cusp}.
+\item $F_1 \in D_{nod}$ and $F_2$ vanishes at the node of $F_1$.
+\end{enumerate}
+
+\end{proof}
 
 \begin{thebibliography}{9}
 \bibitem{Pic}
