@@ -284,14 +284,15 @@ Consider the vector space $H^0(\IP^2_{\IF_{q^e}}, \sO(3))^2$, we say that a pair
 \item $F_1$ describes a smooth curve in $\IP_{\IF_{q^e}}$.
 \item $F_1$ describes a nodal curve but $F_2$ does not vanish at the node.
 \end{enumerate}  
+
 \begin{lemma}
-Let $P \in \IP^1$ be a fixed point and let $e = \deg P$. Let $r(s) \in \IF_q[s]$ be an irreducible polynomial such that the second infinitestimal neighborhood $P^{(2)} = \Spec \IF_q[s]/r(s)^2$. Let $\tau : \IF_q[s]/r(s) \to \IF_q[s]/r(s)^2$ be a section of the linear map $\IF_q[s]/r(s)^2 \to \IF_q[s]/r(s)$. Then the map
-$$ \varphi : H^0(\IP^1_{q^e} , \sO(3))^2 \to H^0(\IP^1_{q^e} \times P^{(2)}, \sO(3))$$ defined by 
-$$ (F_1, F_2) \mapsto \tau(F_1) + r(s) F_2 $$
+Let $P \in \IP^1$ be a fixed point and let $e = \deg P$. Let $r(s) \in \IF_q[s]$ be an irreducible polynomial such that the second infinitestimal neighborhood $P^{(2)} = \Spec \IF_q[s]/r(s)^2$. Let $\, \wt{} : \IF_q[s]/r(s) \to \IF_q[s]/r(s)^2$ be a section of the reduction map $\, \bar{} : \IF_q[s]/r(s)^2 \to \IF_q[s]/r(s)$. Then the map
+$$ \varphi : H^0(\IP^2_{q^e} , \sO(3))^2 \to H^0(\IP^2_{q^e} \times P^{(2)}, \sO(3))$$ defined by 
+$$ (F_1, F_2) \mapsto \wt{F_1} + r(s) F_2 $$
 is an isomorphism of vector spaces. Moveover, $f$ is good at $P$ if and only if the image of $f$ in $H^0(\IP^1_{\IF_{q^e}} , \sO(n))^2$ is a good pair. 
 \end{lemma}
 \begin{proof}
-This should be the same as Lemma 9.7 in \cite{Wood}. I have some confusion with the proof.
+This is essentially the same as Lemma 9.7 in \cite{Wood}. For reader's convenience we give a proof. The above map has an inverse $f \mapsto (\overline{f}, (f - \wt{\overline{f}}))/r(s))$. For $f$ to be good at $P$, we need that its image in $H^0(\IP^2_{\kappa(P)}, \sO(3))$, which ends up being $F_1$, to describe a smooth or nodal curve. Let $Q \in \IP^2_{\IF_{q^e}} \times P^{(2)}$ be a closed point. To check whether $f \in H^0(\IP^2_{q^e} \times P^{(2)}, \sO(3))$ vanishes on $Q^{(2)}$, we check whether $f$ and its partial derivatives all vanish at $Q$. We can replace the local parameter $s$ by $r(s)$ and thus we are checking the simultaneous vanishing of $F_1, \grad F_1, F_2$. $F_1, \grad F_1$ only vanish simultaneously at the node if $F_1$ describes a nodal curve, and hence in order for $f$ to not vanish on $Q^{(2)}$ it suffices to require that $F_2$ does not vanish at the node. 
 \end{proof}
 \begin{lemma}
 \label{pointsurj}
