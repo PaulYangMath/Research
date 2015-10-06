@@ -62,6 +62,7 @@
 
 \newcommand{\fa}{\mathfrak{a}}
 \newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fd}{\mathfrak{d}}
 \newcommand{\fm}{\mathfrak{m}}
 \newcommand{\fp}{\mathfrak{p}}
 \newcommand{\fq}{\mathfrak{q}}
@@ -82,6 +83,7 @@
 
 \newcommand{\shF}{\mathscr{F}}
 \newcommand{\shG}{\mathscr{G}}
+\newcommand{\shI}{\mathscr{I}}
 %%%%%%% macros %%%%%
 
 %% my definitions %%%
@@ -167,7 +169,7 @@
 \begin{document}
 %
 
-\title{Simply Ramified Curves on Ruled Surfaces}
+\title{On the Density of Simply Ramified Curves in Ruled Surfaces}
 \author{Ziquan Yang}
 
 
@@ -180,29 +182,216 @@
 
 \setcounter{section}{0}
 
-% After I sat down and started to think about the problem on a generic ruled surfaces, I soon realized that the first thing I need is a parametrization of curves. 
-
-% For $\IP^1 \times \IP^1$ we can talk about bidegree. Without resorting to bidegrees, we can set $A = \sO_{\IP^1 \times \IP^1} (1, 0)$ and $E = \sO_{\IP^1 \times \IP^1} (0, 1)$ so bidegree $(n, d)$ is the same as $nA + dE$. Since we don't have a notion of bidegree on a ruled surface (or do we?) in general, I would like to find appropriate divisors. Let $\pi : X \to C$ be a ruled surface, I can find a divisor $A$ on $X$ such that $A \cdot X_y = 1$, where $X_y$ is a fiber. As Hartschorne has remarked, $A \cdot X_{y'} = 1$ if we replace $X_y$ by $X_{y'}$. The hard part is to find the other divisor that assumes the role of $E$. I am thinking of making use of a section $\sigma : C \to X$. I would like to find a divisor $E$ such that $E \cdot X_y = 0$ for a fiber $X_y$, and $E \cdot \sigma(C) = 1$. Then I can talk about curves given by $f \in H^0(X, \sO(nA + dE))$, which I think is the analogue of ``bidegree $(n,d)$". 
-
-% I would still like to think of sections in $H^0(X, \sO(nA + dE))$ locally as ``polynomials of bidegree $(n, d)$". That means, if $y \in C$ is a point and $U \iso \IA^1 \subseteq C$ is an affine neighborhood containing the point, then the restriction of $f$ on $\pi^{-1}(U)$ is of the form $\sum p(x_0, x_1) q(t)$, $\deg p = n, \deg q = d$, where $((x_0, x_1), t)$ is the coordiante we give to $\pi^{-1}(U) \iso \IP^1 \times \IA^1$. 
-
-% What do you think is the correct way of formulating it? 
-
-For $X = \IP^1 \times \IP^1$ over $\IF_q$ we proved the following:
-\begin{theorem}
-Let $X = \IP^1 \times \IP^1$, $A = \sO_X(1, 0)$, $E = \sO_X(0, 1)$, $n = 3$ and $R_{n,d} = H^0(X, \sO_X(nA + d E))$. Suppose $p = \mathrm{char } \IF_q \neq 2$. Let $\pi : X \to \IP^1$ be the projection to the second component. Then 
-$$\lim_{d \to \infty} \frac{|f \in R_{n, d} : H_f \textit{ is simply ramified w.r.t. }\pi|}{|R_{n,d}|} = \zeta_{\IP_{\IF_q}}(2)^{-2} $$ 
-\end{theorem}
-
-We would like to extend the result to ruled surfaces. The first thing that we need to do is to find an appropriate set $R_{n, d}$ of sections, so that we may end up with something like:
+\section{Introduction}
+In \cite{Wood}, Erman and Wood generalized Poonen's Bertini smoothness theorem over a finite field to a bigraded setting, especially in the case of Hirzebruch surfaces. More precisely, they proved the following: 
 
 \begin{theorem}
-Let $\pi : X \to C$ be a ruled surface. 
-$$\lim_{d \to \infty} \frac{|f \in R_{n, d} : H_f \textit{ is simply ramified w.r.t} \pi|}{|R_{n,d}|} = \zeta_{\IP_{\IF_q}}(2)^{-2} $$
+For fixed $n \ge 3$, $d \to \infty$, the probability that a curve of bidegree $(n, d)$ in a Hirzebruch surface $X$ is smooth is 
+$$ \prod_{P \in \IP^1_{\IF_q}} (1 - q^{ - 2 \deg P})(1 - q^{-3 \deg P}) = \zeta_{P \in \IP^1_{\IF_q}}(2)^{-1} \zeta_{P \in \IP^1_{\IF_q}}(3)^{-1} $$
+\end{theorem}
+Hirzebruch surfaces are topologically $\IP^1$-bundles over $\IP^1$, which are classified by integers. As we can see, the probability in the above result is independent of the global twisting of the Hirzebruch surface. In fact, heuristically what Erman and Wood proved was that smoothness is independent across fibers, though not necessarily within a fiber. In particular, this implies that the global twisting of the Hirzebruch surface as a $\IP^1$-bundle over $\IP^1$ does not come into play.  
+
+Hirzebruch surfaces are special cases of ruled surfaces. We take the following definition of a ruled surface:
+
+\begin{theorem}
+\label{main}
+A ruled surface is a surface $X$, together with a surjective morphism $\pi : X \to C$ to a (nonsingular) curve $C$, such that the fiber $X_P$ is isomorphic to $\IP^1_{\kappa(P)}$ for every point $P \in C$, and such that $\pi$ admits a section, i.e. a morphism $\sigma : C \to X$ such that $\pi \circ \sigma$ is identity on $C$. 
 \end{theorem}
 
+Before we extended the techniques developed in \cite{Poonen} and \cite{Wood} to compute the asympotic density as $d \to \infty$ of simply ramified curves of bidegree $(n, d)$ in $\IP^1 \times \IP^1$ when $n = 3$. Now we want to extend the result to all ruled surfaces. 
+
+We first explain some notations and setups. We assume that $C$ is embedded as a quasiprojective curve in some $\IP^M$. Let $A$ be the divisor corresponding to $\sigma(C)$ and let $E$ be the divisor corresponding to the fiber $X_{P_0}$ for some $P_0 \in C$ with $\deg P_0 \ge 2g(C)$ such that the projection $\pi : X \to C$ is induced by $E = \pi^{-1}P_0$. Let $R_{n, d} = H^0(X, \sO(nA + dE))$. If $f \in R_{n, d}$ is a section, we use $H_f$ to denote the zero locus of $f$, which is a curve in $X$. Given $\sP \subseteq \cup_d R_{n, d}$ a subset, we define the probability $\Prob(f \in \sP)$ by 
+$$ \Prob(f \in \sP) := \lim_{d \to \infty} \frac{|\sP \cap R_{n, d}|}{|R_{n, d}|} $$
+
+Recall that a curve $D \in X$ is called \textit{simply ramified} if it is smooth, and for each point $Q \in D$, the ramification index (with respect to $\pi$) $e_Q(D) \le 2$. Since we are going to deal with many curves, we add $C$ as a parameter in the notation. Let $\sD$ be the subset of $\cup_d R_{n, d}$ containing those sections $f$ such that $H_f$ is not simply ramified. We will say that $f$, or $H_f$ is ``good" at a point $Q$ if $H_f$ is smooth at $Q$ and $e_Q(H_f) \le 2$ and ``bad" otherwise. The convention is, if $Q \not\in H_f$, then both requirements are automatically satisfied. 
+We will prove the following result: 
+
+\begin{theorem}
+$$ \Prob( f \in \sD) = \zeta_C(2)^{-2} $$
+\end{theorem}
+We will bound the probability of being bad at some point $Q$ when $\pi(Q)$ has a low, medium and high degree respectively. Therefore for some $e_0 \ge 1$ we define: 
+\begin{align*}
+\sP_{e_0}^{\mathrm{low}} &= \union_{d \ge 0} \{ f \in R_{n, d} : f \textit{ is good at all $Q$,}\deg \pi(Q) < e_0\}\\
+\sQ_{e_0}^{\mathrm{med}} &= \union_{d \ge 0} \{f \in R_{n, d} : f \textit{ is bad at some $Q$, }\deg \pi(Q) \in [e_0, \lfloor d/p \rfloor]\}\\
+\sQ^{\mathrm{high}} &= \union_{d \ge 0} \{f \in R_{n, d} : f \textit{ is bad at some $Q$, }\deg \pi(Q) > d/p\}
+\end{align*}
+
+\section{Lemmas and Proofs}
+
+
+\begin{lemma}
+If $\fd$ is a divisor on $C$, then there is a constant $m$ such that 
+$$ H^1(X, \sO_X(3A) \tensor \pi^* \sO_C(\fd) ) = 0 $$ whenever $\deg(\fd) \ge m$. 
+\end{lemma}
+\begin{proof}
+Use the exact sequence 
+\begin{align*}
+0 \to H^1(C, \pi_* \sO_X(3A) \tensor \sO_C(\fd)) \to  & H^1(X, \sO_X(3A) \tensor \pi^* \sO_C(\fd)  \\ 
+& \to H^0(C, R^1 \pi_* \sO_X(3A) \tensor \sO_C(\fd))
+\end{align*}
+$H^0(C, R^1 \pi_* \sO_X(3A) \tensor \sO_C(\fd)) = 0$ since $H^1(\IP^1, \sO(3)) = 0$. When $m$ is sufficiently large, $H^1(C, \pi_* \sO_X(3A) \tensor \sO_C(\fd)) = 0$ for $\deg(\fd) \ge m$ by Serre's vanishing theorem. 
+\end{proof}
+
+
+\begin{lemma}
+\label{Serre}
+Let $W$ be a zero dimensional subscheme of $C$ and $X_W$ be the fiber over $W$. Then there exists a constant $m$ such that when $d \ge m + \deg W$, 
+$$ H^0(X, \sO_X(3A + dE)) \to H^0(X_W, \sO_{X_W}) $$
+is surjective. 
+\end{lemma}
+\begin{proof}
+$W$ gives a divisor on $C$ and $X_W$ gives a divisor on $X$. The exact sequence 
+$$ 0 \to \shI_{X_W} \tensor \sO_X(3A + dE) ) \to \sO_X(3A + dE) \to \sO_X(3A + dE)|_{X_W} \to 0$$
+gives a long exact cohomology sequence 
+\begin{align*} H^0(X, \sO_X(3A + dE)) \to H^0(X_W, &\sO_X(3A + dE)|_{X_W}) \\ &\to H^1(X, \sO_X(3A + dE - X_W)) \to \cdots 
+\end{align*}
+By previous lemma, $H^1(X, \sO_X(3A + dE - X_W)) = 0$ when $d \ge m + \deg W$ for some constant $m$.
+\end{proof}
+
+Now we want to do some local analysis on the fiber. Let $P \in C$ be a point of degree $e$ contained in some affine chart $\Spec A \subseteq C$ where $ A = \IF_q[t_1, \cdots, t_M]/I$ for some ideal $I$. Let $\fm \subseteq A$ be the maximal ideal corresponding to $P$. Then $P^{(2)} = \Spec A/\fm^2$ as a closed subscheme of $C$ and $X_P = \IP^1_{A/\fm^2}$ Since $C$ is some smooth curve, $\sO_{P, C}$ is a discrete valuation ring and we can find a uniformizer $u$ such that $(u) = \fm$.  Let $\, \wt{} : A/\fm \to A/\fm^2$ be a linear map that is a section to the reduction map $\, \wb{} : A/\fm^2 \to A/\fm$. Now let $\varphi_P : R_{n, d} \to H^0(\IP^1_{A/\fm^2}, \sO(3))$ be the restriction map. $H_f$ fails to be smooth at a point $Q \in \pi^{-1}(P)$ if and only if $\varphi_P(f)$ does not vanish at $Q^{(2)} \in \IP^1_{A/\fm^2}$, and $e_Q(H_f) \ge 3$ if and only if $\wb{\varphi_P(f)}$ does not have a triple root on $\IP^1_{A/\fm}$. In other words, we can determine if $H_f$ is good at all points on $\pi^{-1}(P)$ by looking at its image in $H^0(\IP^1_{A/\fm^2}, \sO(3))$, so we observe that:
+
+\begin{lemma}
+\label{Low}
+$$\Prob(f \in \sP_{e_0}^{\mathrm{low}})  = \prod_{\deg(P) < e_0}  \Prob( H_f \textit{ is good at all points } Q \in H_f \cap X_P ) $$
+\end{lemma}
+\begin{proof}
+Let $P_1, P_2, \cdots, P_s$ be the points with degree $< e_0$. Apply Lemma~\ref{Serre} $W = \coprod_i P_i^{(2)}$. 
+\end{proof}
+
+Accordingly, we make the following convention:
+ We call a pair $(F_1, F_2) \in H^0(\IP^1_{A/\fm}, \sO(3))^2$ ``bad" if it is one of the following two types:
+\begin{enumerate}
+\item $F_1 \equiv 0$, or $F_1$ has a double root at a point where $f_2$ also vanishes. 
+\item $F_1$ has a triple root at a point where $F_2$ does not vanish. 
+\end{enumerate}
+Note that we deliberately make the two types to be disjoint. It is not necessary for now but it facilitates our counting. 
+
+\begin{lemma}
+$$ H^0(\IP^1_{A/\fm}, \sO(3))^2 \to H^0(\IP^1_{A/\fm^2}, \sO(3)) $$
+given by $(F_1, F_2) \mapsto \wt{F}_1 + uF_2$ (applying $\, \wt{}$ coefficient-wise) is a bijection. Moreover, $f \in R_{n, d}$ is ``good" at all points $Q \in \pi^{-1}(P)$ if and only if $\varphi_P(f)$ does not correspond to a bad pair. 
+\end{lemma}
+\begin{proof}
+This is essentially a version of Lemma 9.7 in \cite{Wood} tailored to our situation. The map $f \mapsto ( \wb{f}, (f - \wt{\wb{f}})/u)$ is an inverse to the map given in the lemma. Let $(F_1, F_2)$ be the pair corresponding to $\varphi_P(f)$. To check whether $\varphi_P(f)$ vanishes on $Q^{(2)}$, we check whether $\varphi_P(f)$ and its two partial derivatives all vanish at $Q$, but this is equivalent to checking whether $F_1, F_1'$ and $F_2$ all vanish at $Q$ as a point $\IP^1_{A/\fm}$. This is equivalent to the condition that there is no geometric point that is a double root to $F_1$ and  a root to $F_2$. Similarly, we can check whether $e_Q(H_f) \ge 3$ by checking whether $F_1, F'_1$ and $F''_1$ all vanish at $Q$, but this happens exactly when $Q$ is a triple root to $F_1$. 
+\end{proof}
+
+\begin{lemma}
+\label{count}
+The density of good pairs in $H^0(\IP^1_{\kappa(P)}, \sO(3))^2$ is 
+$$ (1 - q^{-2e})^{2} $$
+\end{lemma}
+\begin{proof}
+To simplify notation, we can replace $q^e$ by $q$ in the proof. Type 1 pairs were counted by Lemma 9.8 in \cite{Wood}. There are 
+$$ q^6 + q^5 - q^3 $$
+of them. 
+To count type 2 pairs, note first that $P$ has to be a point of degree $1$. Therefore there are $q + 1$ choices. At each $P$, there are $(q-1)$ polynomials of degree $3$ which have $P$ as a triple root, since the leading coefficient will uniquely determine such a polynomial. The possibility that $f_2$ vanishes at $P$ is evidently $q^{-1}$, so there are $q^4 - q^3$ polynomials who don't. In total there are 
+$$ (q + 1)(q - 1)(q^4 - q^3) = q^6 - q^5 - q^4 + q^3 $$
+pairs of type 2. 
+
+Therefore the density of good pairs is 
+$$ 1 - q^{-8}(q^6 + q^5 - q^3 + q^6 - q^5 - q^4 + q^3) = (1 - q^{-2})^2 $$ 
+\end{proof}
+
+
+\begin{lemma}
+\label{Medium}
+$$\lim_{e_0 \to \infty} \Prob( f \in  \sQ_{e_0}^{\mathrm{med}}) = 0 $$
+\end{lemma}
+\begin{proof}
+Let $P$ be a point of degree $e < \lfloor d/p \rfloor$ on $C$ and let $B_P$ denote the event that a randomly chosen $f \in R_{n, d}$ is ``bad" at some point in the fiber $X_P$. By Lemma~\ref{Serre} applied to $W = P^{(2)}$, there is some constant $m$ such that when $d \ge m + 2 \deg P$, $R_{n, d} \to H^0(X_W, \sO_{X_W})$ is surjective. Since we assumed $p \neq 2$, $\deg P < \lfloor d/p \rfloor$, when $d$ is large enough, we automatically have that $d \ge m + 2 \deg P$. With this surjectivity, we can infer from Lemma~\ref{count} that the probability of event $B_P$ is bounded by $q^{-2e}$. Of course, the probability of $\union B_P$ is bounded by the sum of these individual probabilities, so we have:
+\begin{align*}
+\Prob(f \in R_{n, d} \cap \sQ_{e_0}^{\mathrm{med}}) &\le \sum_{e = e_0}^{\lfloor d/p \rfloor} (\text{number of points of degree $e$ in $C$})q^{-2e} \\
+&\le \sum_{e = e_0}^{\lfloor d/p \rfloor}|C(\IF_{q^e})| q^{-2e} \\
+&\le \sum_{e = e_0}^{\infty} c q^{e} q^{-2e} \\
+&= \frac{c q^{-e_0}}{1 - q^{-1}}
+\end{align*}
+The third inequality is given by Lang-Weil bound, where $c$ is a constant depending only on $C$. 
+\end{proof}
+
+\begin{lemma}
+\label{High}
+$\Prob( f\in \sQ^{\mathrm{high}}) = 0$
+\end{lemma}
+\begin{proof}
+We divide $\sQ^{\mathrm{high}}$ as $\sQ^{\mathrm{high}}_{\mathrm{sing}} \cup \sQ^{\mathrm{high}}_{\mathrm{multi}}$. As their names suggest, $\sQ^{\mathrm{high}}_{\mathrm{sing}}$ are those curves that are bad for being singular and $\sQ^{\mathrm{high}}_{\mathrm{multi}}$ for having a point with ramification degree $\ge 3$. 
+It is already shown by Lemma 5.4 in \cite{Wood} that $$ \Prob(f \in \sQ^{\mathrm{high}}_{\mathrm{sing}}) = 0 $$ and hence we only need to show
+$$ \Prob(f \in \sQ^{\mathrm{high}}_{\mathrm{multi}}) = 0 $$
+The proof is completed by taking $d \to \infty$ in Lemma~\ref{Decoup}. 
+\end{proof}
+ 
+The following is a simply linear-algebraic observation. It is used in \cite{Wood} without explicit explanation. For reader's convenience, we single it out since justifies a main step in simplying the problem in Lemma~\ref{Decoup}. 
+\begin{lemma}
+\label{linear}
+Let $V, W$ be finite dimensional vector spaces over $\IF_q$ and let $V_0 \subseteq V$ be a subspace. Let $p : W \to V$ be a linear transformation, then 
+$$ \frac{|p^{-1} V_0|}{|W|} \ge \frac{|V_0|}{|V|}$$
+\end{lemma}
+\begin{proof}
+Let $I$ be the image of $p$. We are to verify 
+$$ |V||V_0 \cap I| \ge |V_0||I| $$
+Take $\log_p$ on both sides, it reduces to 
+$$ \dim V  + \dim V_0 \cap I \ge \dim V_0 + \dim I$$
+which is true since 
+$$ \dim V_0 \cap I \ge \dim V_0 + \dim I - \dim V $$  
+\end{proof}
 
 
 
+\begin{lemma}
+\label{Decoup}
+When $n_0$ sufficiently large, we have that $A' = nA + n_0 E$ is a very ample divisor. Let $f \in R_{n, d+n_0}$ be chosen and random and $j \in \IN$ be fixed. The probability $P^*$ that $H_f$ has a multiply ramified point $Q \in X$ with $\deg \pi(Q) \ge j$ is at most
+$$ \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j    \}})$$
+\end{lemma}
+\begin{proof}
+We call a point $Q \in X$ \textit{admissible} if $\deg \pi(Q) \ge j$. 
+
+
+On $C$ we can find trivializing charts. That is, $C$ can be covered by open affine sets $V_\alpha = \Spec A_\alpha$, such that $\pi^{-1}(V_\alpha) \subseteq X$ is isomorphic to $V_\alpha \times \IP^1$, and $\pi$ resticted to $\pi^{-1}(V_\alpha) \iso V_\alpha \times \IP^1$ is projection map $V_\alpha \times \IP^1 \to V_\alpha$. 
+$V_\alpha \times \IP^1$ is covered by two copies of $V_\alpha \times \IA^1$.  Suppose $V_\alpha = \Spec \IF_q[v_1, \cdots, v_{M_\alpha}]/I$ and $\IA^1 = \Spec \IF_q[y]$. $V_\alpha$ can be viewed as an affine curve in $\IA^{M_\alpha}$. Without loss of generality, we may further restrict $V_\alpha$ so that some $d v_1$ generate the differentials. Therefore the differentials on $V_\alpha \times \IA^1$ are generated by (more precisely, pullbacks of) $dv_1, dy$.  
+
+Let $\iota : X \to \IP^N$ be the embedding induced by $A'$. We can cover $X$ with finitely many open sets, so we reduce to an open subset $U \subseteq X \cap \IA^N$ that is contained in some $V_\alpha \times \IA^1$. Let $\IA^N = \Spec \IF_q[s_1, \cdots, s_N]$. By again reducing to a finite cover and by possibly labeling the $s_i$'s, we can assume that $ds_1, ds_2$ generate the differentials on $U$. On $U$, we can write $ds_k = a_{k, 1} ds_1 + a_{k, 2} ds_2$ for $k > 2$ and $a_{k, i} \in \sO_U \subseteq \IF_q(s_1, \cdots, s_N)$ are regular functions. This gives maps $D_i : \sO_U \to \IF_q(s_1, \cdots, s_N)$, so that on $U$, $df = D_1 f ds_1 + D_2 f ds_2$. However, since $d v_1, dy$ also generate the differentials on $U$. There are regular functions $b_{i,j} \in \sO_U$ such that $ds_1 = b_{1, 1} dv_1 + b_{1, 2} dy$ and $ds_2 = b_{2, 1} dv_1 + b_{2, 2} dy$. We define a map $D : \sO_U \to \IF_q(s_1, \cdots, s_N)$ by 
+$$ D = b_{1, 2} D_1 + b_{2,2} D_2$$
+
+Note that when we use $dv_1, dy$ as generators of differentials, we can write $df = D_{v_1}f dt_1 + D_y f dy$ where $D_y f$ is what we think of as $\p f / \p y$. The $D$ map, which we spend so much effort to describe, is used to trace out $\p / \p y$ on $U$ under change of coordiantes. 
+
+For any $Q \in U$, we have maps
+$$ S_{n, d} \iso H^0(\IP^N \times \IP^M, \sO(n, d)) \to R_{n, d + n_0} \to H^0(Q^{(3)}, \sO_{Q^{(3)}}) $$ 
+By Lemma~\ref{linear}, it is at least as likely that $H_g \cap U$ ramifies thrice at $Q$ for a randomly chosen element $g \in S_{n, d}$ as it is that $H_f$ ramifies thrice at $Q$ for a randomly chosen $f \in R_{n, d}$. Thus we reduce to studying a randomly chosen $g \in S_{n, d}$. 
+
+Eech coordinate $t_j$ of $\IA^M$ pulls back via $\pi$ to a regular function on $U$. Thus given any $g \in S_{n, d}$, we may use $\phi$ to write $g|_U$ as a polynomial $\phi(g) \in \sO_U \subseteq \IF_q(s_1, \cdots, s_N)$. For a given $g \in S_{n, d}$, a point $Q \in U$ has $e_Q(H_g) \ge 3$ if and only if $Q \in \{ \phi(g) = D \phi(g) = D^2 \phi(g) = 0 \} \subseteq \IA^N$. 
+
+We apply the Poonen's decoupling idea to decouple the first and second order partial derivatives in this context. To choose $g \in S_{n, d}$ at randomly we choose $g_0 \in S_d$, $g_1, g_2, h \in S_{0, \lfloor d/p \rfloor} $ at random and put 
+$$ g = g_0 + g_{2}^p s_1^2 + g^p_{1} s_1 + h^p $$
+Now $D \phi(g) = 0$ amounts to 
+$$b_{1, 2} ( D_1 \phi(g_0) + 2 \phi(g_{2})^p s_1 + \phi(g_{1})^p) + b_{2, 2}(D_2 \phi(g_0)) = 0 $$
+And $D^2 \phi(g) = 0$ amounts to: 
+$$ b_{1, 2}^2 (D_1^2 \phi(g_0) + 2 \phi(g_{2})^p) + b_{1, 2}b_{2, 2} (D_1 D_2 \phi(g_0)) + b_{2, 2}^2(D_2^2 \phi(g_0)) = 0 $$
+
+
+Define $W_2 = U \cap \{ D^2 \phi(g) = 0 \}$, $W_1 = U \cap \{D^2 \phi(g) = D \phi(g) = 0\}$ and $W_0 = U \cap \{ D^2 \phi(g) = D \phi(g) = \phi(g) = 0\}$. \\\\
+\textit{Claim: }Conditioned on a choice of $g_0$, the probability that $\dim W_2 = 1$ and $W_2$ contains an admissible point $Q$ is $$1 - \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}})$$ Let $V_1, \cdots, V_c$ be irreducible components of $\{D^2(\phi(g_0)) = 0\}_{\mathrm{red}}$.    
+For each $V_k$ that contains an admissible point, those $g_2$ that will make $D^2 \phi(g)$ vanish identically on $V_k$ form a coset of the linear map 
+
+$$ \varphi_k : S_{0, \lfloor d/p \rfloor} \to H^0(V_k, \sO_{V_k})$$ 
+
+A lower bound on $|\im \varphi_k|$ gives an upper bound for the probability that $D^2(g)$ vanishes on $V_k$, which is simply the inverse of $|\im \varphi_k|$. If $\dim \pi(V_k) \ge 1$, we see that the pullback of some $t_i$, and hence any polynomial in $t_i$, does not vanish on $V_k$. In this case, we have $|\im \varphi_k| \ge q^{\lfloor d/p \rfloor + 1}$. If $\dim \pi(V_k) = 0$, we invoke lemma 5.3 in \cite{Wood} to obtain $|\im \varphi_k| \ge q^{\min \{\lfloor d/p \rfloor + 1, j \}  }$. The claim hence follows. 
+
+Now we may randomly choose $g_1$ to fix $W_2$ and then choose $h$ to fix $W_0$. Similarly, we can show that the probability that $\dim W_1 = 0$ conditioned on a choice of $g_0, g_2$ such that $\dim W_2 = 1$, and the probability that will make $W_0$ contains no admissible points conditioned on a choice of $g_1$ such that $\dim W_1 = 0$ are both bounded by $$1 - \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}})$$
+Therefore we have shown that 
+$$ P^* \le 1 - (1 - \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}}))^3 = \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}}) $$  
+
+\end{proof}
+
+Now we have all the ingredients to prove Theorem~\ref{main}. For each $e_0$, we have that 
+$$ \sD \subseteq \sP_{e_0}^{\mathrm{low}} \cup \sQ_{e_0}^{\mathrm{med}} \cup \sQ^{\mathrm{high}}$$
+Therefore 
+$$ \Prob(f \in \sP_{e_0}^{\mathrm{low}}) \le \Prob(f \in \sD) \le \Prob(f \in \sP_{e_0}^{\mathrm{low}} \cup \sQ_{e_0}^{\mathrm{med}} \cup \sQ^{\mathrm{high}})$$
+Now take $e_0 \to \infty$, Lemma~\ref{Low}, \ref{count}, \ref{Medium}, \ref{High} combine the give the result. 
+
+\begin{thebibliography}{9} 
+\bibitem{Wood}
+D. Erman and M.M. Wood, \textit{Semiample Bertini theorems over finite fields}, Duke Mathematical Journal 164(2015), no. 1, 1-38
+
+\bibitem{Poonen}
+B. Poonen, \textit{Bertini theorems over finite fields}, Ann. of Math. (2) 160 (2004), no. 3, 1099-1127.
+\end{thebibliography}
 
 \end{document}
