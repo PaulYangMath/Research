@@ -157,11 +157,12 @@
 \begin{document}
 %
 
-\title{A Bertini Existence Theorem on Elliptic Surfaces}
+\title{A Bertini Density Theorem on Elliptic Surfaces}
 \author{Ziquan Yang}
 
 
 \date{August 14, 2015}
+
 
 \maketitle
  
@@ -272,13 +273,13 @@ Let $R_{3, d} = H^0(\IP^2 \times \IP^1, \sO(3, d))$. If $S \subseteq \union_d R_
 $$ \Prob(f \in S) = \lim_{d \to \infty} Prob(f_d \in S \cap R_{3, d}) = \lim_{d \to \infty} \frac{|S \cap R_{3, d}|}{|R_{3, d}|} $$
 Let $D \subseteq \union_d R_{3, d}$ be the subset consisting of those $f$ such that $H_f$ is a smooth hypersurface in $\IP^2 \times \IP^1$ and has no singular fibers over $\IP^1$ other than nodal curves. 
 \begin{theorem}
-$ \Prob(f \in D) > 0 $ and hence when $d$ is sufficiently large, there always exists some smooth hypersurface of bidegree $(3, d)$, singular fibers of which are all nodal curves. 
+$ \Prob(f \in D) > 0 $ and hence when $d$ is sufficiently large, there always exists some smooth hypersurface of bidegree $(3, d)$, singular fibers of which are all nodal curves. Moreover \footnote{This observation was made by Justin Curry on Sept. 28th after I gave a PRUV talk on this article. I wrote it down on Oct. 6th.}, if we replace $\IF_q$ by its extension $\IF_{q^\alpha}$, then $$ \lim_{\alpha \to \infty} \Prob(f \in D_\alpha) = 1$$
 \end{theorem}
 
 
 We will follow the basic idea of the proof of Theorem~\ref{Bertini} so will use the same notations as before. 
 \subsection{Lemmas}
-Let $P \in \IP^1_{\IF_q}$ be a point. We say that a hypersurface $H_f$, or sometimes the polynomial $f \in H^0(\IP^2 \times \IP^1, \sO(3, d))$ defining it, is \textit{good} at the point $P$ if $H_f$ is smooth at all points $Q \in \pi^{-1}(P)$, and the fiber $(H_f)_P \subseteq \IP^2_{\kappa(P)}$ is either smooth or a nodal curve. Otherwise, we say $H_f$, or $f$, is \textit{bad} at $P$.  
+Let $P \in \IP^1_{\IF_q}$ be a point. We say that a hypersuface $H_f$, or sometimes the polynomial $f \in H^0(\IP^2 \times \IP^1, \sO(3, d))$ defining it, is \textit{good} at the point $P$ if $H_f$ is smooth at all points $Q \in \pi^{-1}(P)$, and the fiber $(H_f)_P \subseteq \IP^2_{\kappa(P)}$ is either smooth or a nodal curve. Otherwise, we say $H_f$, or $f$, is \textit{bad} at $P$.  
 
 Consider the vector space $H^0(\IP^2_{\IF_{q^e}}, \sO(3))^2$, we say that a pair $(F_1, F_2)$ is good if, it satisfies one the following conditions:
 \begin{enumerate}
@@ -287,22 +288,22 @@ Consider the vector space $H^0(\IP^2_{\IF_{q^e}}, \sO(3))^2$, we say that a pair
 \end{enumerate}  
 
 \begin{lemma}
-Let $P \in \IP^1$ be a fixed point and let $e = \deg P$. Let $r(t) \in \IF_q[t]$ be an irreducible polynomial such that the second infinitestimal neighborhood $P^{(2)} = \Spec \IF_q[t]/r(t)^2$. Let $\, \wt{} : \IF_q[t]/r(t) \to \IF_q[t]/r(t)^2$ be a section of the reduction map $\, \bar{} : \IF_q[t]/(t)^2 \to \IF_q[t]/r(t)$. Then the map
+Let $P \in \IP^1$ be a fixed point and let $e = \deg P$. Let $r(s) \in \IF_q[s]$ be an irreducible polynomial such that the second infinitestimal neighborhood $P^{(2)} = \Spec \IF_q[s]/r(s)^2$. Let $\, \wt{} : \IF_q[s]/r(s) \to \IF_q[s]/r(s)^2$ be a section of the reduction map $\, \bar{} : \IF_q[s]/r(s)^2 \to \IF_q[s]/r(s)$. Then the map
 $$ \varphi : H^0(\IP^2_{\IF_{q^e}} , \sO(3))^2 \to H^0(\IP^2 \times P^{(2)}, \sO(3))$$ defined by 
-$$ (F_1, F_2) \mapsto \wt{F_1} + r(t) F_2 $$
+$$ (F_1, F_2) \mapsto \wt{F_1} + r(s) F_2 $$
 is an isomorphism of vector spaces. Moveover, $f$ is good at $P$ if and only if the image of $f$ in $H^0(\IP^2_{\IF_{q^e}} , \sO(3))^2$ is a good pair. 
 \end{lemma}
 \begin{proof}
-This is essentially the same as Lemma 9.7 in \cite{Wood}. For reader's convenience we give a proof. The above map has an inverse $f \mapsto (\overline{f}, (f - \wt{\overline{f}}))/r(t))$. For $f$ to be good at $P$, we need that its image in $H^0(\IP^2_{\kappa(P)}, \sO(3))$, which ends up being $F_1$, to describe a smooth or nodal curve. Let $Q \in \IP^2 \times P^{(2)}$ be a closed point. To check whether $f \in H^0(\IP^2 \times P^{(2)}, \sO(3))$ vanishes on $Q^{(2)}$, we check whether $f$ and its partial derivatives all vanish at $Q$. We can replace the local parameter $t$ by $r(t)$ and thus we are checking the simultaneous vanishing of $F_1, \grad F_1, F_2$. $F_1, \grad F_1$ vanish simultaneously only at the node if $F_1$ describes a nodal curve, and hence in order for $f$ to not vanish on $Q^{(2)}$ it suffices to require that $F_2$ does not vanish at the node. 
+This is essentially the same as Lemma 9.7 in \cite{Wood}. For reader's convenience we give a proof. The above map has an inverse $f \mapsto (\overline{f}, (f - \wt{\overline{f}}))/r(s))$. For $f$ to be good at $P$, we need that its image in $H^0(\IP^2_{\kappa(P)}, \sO(3))$, which ends up being $F_1$, to describe a smooth or nodal curve. Let $Q \in \IP^2_{\IF_{q^e}} \times P^{(2)}$ be a closed point. To check whether $f \in H^0(\IP^2 \times P^{(2)}, \sO(3))$ vanishes on $Q^{(2)}$, we check whether $f$ and its partial derivatives all vanish at $Q$. We can replace the local parameter $s$ by $r(s)$ and thus we are checking the simultaneous vanishing of $F_1, \grad F_1, F_2$. $F_1, \grad F_1$ only vanish simultaneously at the node if $F_1$ describes a nodal curve, and hence in order for $f$ to not vanish on $Q^{(2)}$ it suffices to require that $F_2$ does not vanish at the node. 
 \end{proof}
 \begin{lemma}
 \label{pointsurj}
-Let $P \in \IP^1_{\IF_q}$ be a point of degree $e$. Then map $\ev_P : H^0(\IP^2 \times \IP^1, \sO(3, d)) \to H^0(\IP^2 \times P^{(2)}, \sO(3))$ is surjective for $d \ge 2e$. 
+Let $P \in \IP^1_{\IF_q}$ be a point of degree $e$. Then map $\ev_P : H^0(\IP^2 \times \IP^1, \sO(3, d)) \to H^0(\IP^2 \times P^{(2)}, \sO(3))$ is surjective for $d \ge 2e + 1$. 
 \end{lemma}
 \begin{proof}
-Let $\IA^1$ be an affine chart that contains $P$. We dehomogenize $f \in H^0(\IP^2 \times \IP^1, \sO(3, d))$ and write $$f = \sum_{0 \le i + j \le 3} f_{ij}(t) x^i y^j$$ Suppose $r(t) \in \IF_q[t]$ is a polynomial such that $P^{(2)} = \Spec \IF_q[t]/r(t)^2$. Then $\ev_P$ does nothing but reducing each coefficient modulo $r(t)^2$:
+Let $\IA^1$ be an affine chart that contains $P$. We dehomogenize $f \in H^0(\IP^2 \times \IP^1, \sO(3, d))$ and write $$f = \sum_{0 \le i + j \le 3} f_{ij}(t) x^i y^j$$ Suppose $r(t) \in \IF_q[t]$ is a polynomial such that $P^{(2)} = \Spec \IF_q[t]/r(t)^2$. Then $\ev_P$ is nothing but reduce each coefficient modulo $r(t)^2$:
 $$ \ev_P(f) = \sum_{0 \le i + j \le 3} \overline{f_{ij}(t)}x^i y^j $$ 
-where $\overline{f_{ij}(t)} \in \IF_q[t]/r(t)^2$. Therefore by linear algebra, when $d \ge 2e$, we have that $\ev_P$ is surjective. 
+where $\overline{f_{ij}(t)} \in \IF_q[t]/r(t)^2$. Therefore by linear algebra, when $d \ge 2e + 1$, we have that $\ev_P$ is surjective. 
 \end{proof}
 
 \begin{lemma}
@@ -318,16 +319,13 @@ $$ \wt{D} = \{ (P, F) \in \IP^2 \times \IP H^0(\IP^2, \sO(3)) : F(P) =0 \text{ a
 \end{enumerate}
 Since a homogeneous polynomial of degree $3$ always factors into a linear term and a quadratic term if it is reducible, $D_{red}$ is the image of a the natural map 
 $$ \IP H^0(\IP^2, \sO(1)) \times \IP H^0(\IP^2, \sO(2)) \to \IP H^0(\IP^2, \sO(3))$$
-$\dim D_{red} \le 7$ since $\dim \IP H^0(\IP^2, \sO(1)) = 2$ and $\IP H^0(\IP^2, \sO(2)) = 5$. Now we consider $D_{cusp}$. $D_{cusp}$ is evidently contained in the subscheme of $D$ parametrizing those curves whose tangent cones are double lines somwhere. Just as in the proof of Theorem~\ref{Bertini}, the tangent cone of $\{f=0\}$ at a point $(x, y)$ is a double line if $\{f=0\}$ is singular at $(x, y)$ and $T^2_{(x, y)}f(u, v)$ has a double root for some $(u : v)$. We may describe the last condition alternatively using the discriminant of a quadratic equation, without resorting to auxilliary variables $(u : v)$. Therefore, $D_{cusp}$ is contained in the image under projection to $D$ of the following subscheme of $\wt{D}$:
-$$ \wt{D}_{double} = \{ (P, F) \in \IP^2 \times \IP H^0(\IP^2, \sO(3)) : (f_{xy}(P))^2 = (f_{xx}(P))(f_{yy}(P))\} \cap \wt{D}$$
+$\dim D_{red} \le 7$ since $\dim \IP H^0(\IP^2, \sO(1)) = 2$ and $\IP H^0(\IP^2, \sO(2)) = 5$. Now we consider $D_{cusp}$. $D_{cusp}$ is evidently contained in the subscheme of $D$ parametrizing those curves whose tangent cones are double lines somwhere. Just as in the proof of Theorem~\ref{Bertini}, the tangent cone of $\{f=0\}$ at a point $(x, y)$ is a double line if $\{f=0\}$ is singular at $(x, y)$ and $T^2_{(x, y)}f(u, v)$ has a double root for some $(u : v)$. We may describe the last condition alternatively using the discriminant of a quadratic equation, without resorting to auxilliary variables $(u : v)$. Therefore, $D_{cusp}$ is contained in the image under projection to $D$ of the following subscheme of $\IP^2 \times  D $:
+$$ \wt{D}_{double} = \{ (P, F) \in \IP^2 \times D : (f_{xy}(P))^2 = (f_{xx}(P))(f_{yy}(P))\} $$
 Note that in the equation $(f_{xy}(P))^2 = (f_{xx}(P))(f_{yy}(P))$, if $f_{xx}(P) \neq 0$, then the tangent cone is indeed a double line. If $f_{xx}(P) = 0$, then in fact $f$ vanishes at the second infinitestimal neighborhood of $P$ and the tangent cone is given by some homogeneous degree $3$ polynomial in $\IF_q[x, y]$. Therefore $\proj_D(\wt{D}_{double})$ in fact contains both cuspidal curves and some reducible curves, and hence $$\proj_D{\wt{D}_{double}} \cup D_{red} = D_{red} \cup D_{cusp}$$
-$(f_{xy}(P))^2 = (f_{xx}(P))(f_{yy}(P))$ does not vanish identically on $\wt{D}$ since there are singular curves in $\wt{D}$ that do not have the double line as the tangent cone anywhere, e.g. a curve that is the union of three distinct lines. Therefore $\dim \proj_D{\wt{D}_{double}} = \wt{D} - 1$.
-
-
 Note that $f \in H^0(\IP^2, \sO(3))$ corresponds to points of degree $1$ in the projectivization $\IP^9$ up to rescaling. 
 $\dim D_{cusp}$ and $\dim D_{red}$ are each bounded by $7$, and hence by Lang-Weil bound, there is a constant $c'$, such that 
 $$ |\{ \text{points of degree }1 \in D_{red} \cup D_{cusp} \subseteq \IP^9\}| \le c'q^{7e} $$ 
-The number of degree $1$ points in $\IP^9$ is $q^{9e} + q^{8e} + \cdots + 1 \ge q^{9e}$. Therefore $$\Prob(F_1 \in D_{red} \cup D_{cusp}) \le c' q^{-2e}$$
+The number of degree $1$ points in $\IP^9$ is $\ge q^{9e}$. Therefore $$\Prob(F_1 \in D_{red} \cup D_{cusp}) \le c' q^{-2e}$$
 Given the above discussion we see that $D_{nod} \subseteq D$ is open since $D_{nod} = D - D_{red} \cup D_{cusp}$. By Lang-Weil bound again, we see that $\Prob(F_1 \in D_{nod}) = c'' q^{-e}$ for some constant $c''$. Only points in $\IP^2_{\IF_{q^e}}$ of degree $1$ could possibly be the node of some nodal curve. If some nodal curve $C \subseteq \IP^2_{\IF_{q^e}}$ has a node at some point $P$, $\deg P  = r > 1$, then $C \times \Spec \IF_{q^{er}} $ will be a nodal curve in $\IP^2_{\IF_q} \times \Spec \IF_{q^{er}}$ with $r$ nodes, counted with multiplicity, which is impossible. Conversely, every point of degree $1$ is equally likely to be the node of some nodal curve. Given a point $N$ of degree $1$, the probability that a randomly chosen $F_2$ will vanish at $N$ is $q^{-e}$, since the restriction map
 $$ H^0(\IP^2_{\IF_{q^e}}, \sO(3)) \to H^0(Q, \sO_Q) $$
 is clearly surjective. Since $F_1$ and $F_2$ are chosen independently, we may conclude that 
@@ -369,7 +367,7 @@ $$ O((d^4) q^{-\min(\fl{d/p} + 1, j)})$$
 \end{lemma}
 %%(I understand $((u : v), Q, P, f) \in G_1 \cup G_2$ may cause some confusion. Over algebraically closed fields, maybe we are fine. But over finite fields, $Q \in \IA^2_{\IF_{q^e}} = \IA^2_{\IF_q} \times \Spec \kappa(P)$ but $P \in \IA^1_{\IF_q}$. How should I formally put down this idea?)
 \begin{proof}
-In this proof schemes involved are assumed to be over $\IF_{q^e}$. We may work locally and consider $\IA^1 \times \IA^2 \times \IA^1 \subseteq \IP^1 \times \IA^2 \times \IA^1$. Let $u$ be the coordinate of the first $\IA^1$ component. Let $\pi : \IA^1 \times \IA^2 \times \IA^1 \to \IA^1$ be the projection to last component. We label the coordinates of $\IA^1 \times \IA^2 \times \IA^1 \times \IA^1$ by $(u, (x, y), t)$ and use $S_{l, n, d}$ to denote the set of polynomials in $\IF_q[u, x, y, t]$ that are of degree $\le l$ in $u$, $\le n$ in $x, y$ and $\le d$ in $t$. 
+In this proof schemes involved are assumed to be over $\IF_{q^e}$. We may work locally and consider $\IA^1 \times \IA^2 \times \IA^1 \subseteq \IP^1 \times \IA^2 \times \IA^1$. Let $u$ be the coordiate of the first $\IA^1$ component. Let $\pi : \IA^1 \times \IA^2 \times \IA^1 \to \IA^1$ be the projection to last component. We label the coordinates of $\IA^1 \times \IA^2 \times \IA^1 \times \IA^1$ by $(u, (x, y), t)$ and use $S_{l, n, d}$ to denote the set of polynomials in $\IF_q[u, x, y]$ that are of degree $\le l$ in $u$, $\le n$ in $x, y$ and $\le d$ in $t$. 
 
 We first treat $G_2$. Following Poonen's decoupling idea, we write $f$ in such a way that all the partial derivatives involved are largely independent. We choose $f_0 \in S_{0, 3, d}$ and $g_{ij} \in S_{0, 0, \fl{d/p}}$ uniformly at random and put 
 $$ f = f_0 + \sum_{0 \le i + j \le 2} g_{ij}^p x^i y^j$$
@@ -393,29 +391,29 @@ $W_4$ & $g_{2, 0}, g_{1, 1}, g_{0, 2}, g_{1, 0}, g_{0, 1}$ \\ \hline
 $W_5$ & $g_{2, 0}, g_{1, 1}, g_{0, 2}, g_{1, 0}, g_{0, 1}, g_{0, 0}$ \\ \hline
 \end{tabular}
 \end{center}
-The above table reads: $W_i$ is fixed by a choice of $g_{ij}$'s in $D_i$. We first show that for $1 \le i \le 4$, conditioned on a choice of $D_i$ such that $\dim W_i \le 4 - i$, the probability that a randomly chosen $g_{ij} \in D_{i + 1} - D_i$ will make $\dim W_{i + 1} > 4 - i - 1$ and contains a point $Q$ for which $\deg \pi(Q) \ge j$ is at most
-$$ 1 - O((d^{i-1}) q^{-\min(\fl{d/p} + 1, j)}) $$
-
+The above table reads: $W_i$ is fixed by a choice of $g_{ij}$'s in $D_i$. We first show that for $1 \le i \le 4$ conditioned on a choice of $D_i$ such that $\dim W_i \le 4 - i$, the probability that a randomly chosen $g_{ij} \in D_{i + 1} - D_i$ will make $\dim W_{i + 1} > 4 - i - 1$ and contains a point $Q$ for which $\deg \pi(Q) \ge j$ is at most
+$$ 1 - O((d^i) q^{-\min(\fl{d/p} + 1, j)}) $$
+We show the first two steps $i =1, 2$, and the rest of steps are entirely similar. 
 
 \paragraph{i = 1:} The equation defining $W_1$ breaks down to 
 $$ u(f_{0, xx} + 2g_{2, 0}) + (f_{0, xy} + g_{1, 1}) = 0$$ 
-It cuts off one dimension in $\IA^1 \times \IA^2 \times \IA^1$ so long as it is not identically $0$. We know that a polynomial in $\IF_q[u, x, y, t]$ does not vanish identically on $\IA^1 \times \IA^2 \times \IA^1$ unless it is zero. As the second term in the above equation contains no $u$, the above equation breaks down to two equations:
+It cuts off one dimension in $\IA^1 \times \IA^2 \times \IA^1$ so long as it is not identically $0$. We know that a polynomial in $\IF_q[u, x, y]$ does not vanish identically on $\IA^1 \times \IA^2 \times \IA^1$ unless it is zero. As the second term in the above equation contains no $u$, the above equation breaks down to two equations:
 $$ f_{0, xx} + 2g_{2, 0} = 0; \, f_{0, xy} + g_{1, 1} = 0$$
-Therefore, since $f_0$ has been chosen, there is at most one choice of $g_{2, 0}$ and $g_{1, 1}$. (It is entirely possible that $f_{0, xx}, f_{0, xy} \not\in S_{0, 0, \fl{d/p}}$) Therefore the probability that $\dim W_1 = 4$ is at most
+Therefore, since $f_0$ has been chosen, there is at most one choice of $g_{2, 0}$ and $g_{1, 1}$. (It is entirely possible that $f_{0, xx}, f_{0, xy} \not\in S_{0, 0, \fl{n/p}}$) Therefore the probability that $\dim W_1 = 4$ is at most
 $$ (\frac{1}{q^{\fl{d/p}}})^2$$
 \paragraph{i = 2:} 
 So now we suppose $g_{2,0}, g_{1,1}$ have been chosen such that $\dim W_1 \le 3$. The equation defining $W_2$ in $W_1$ is 
 $$ u^2 f_{xx} + 2u f_{xy} + f_{yy} = 0 $$
 which breaks down to 
 $$ u^2(f_{0, xx} + 2 g_{2, 0}) + 2u(f_{0, xy} + g_{1, 1}) + (f_{0, yy} + 2 g_{0, 2}) = 0 $$
-Let $V_1, \cdots, V_l$ be the irreducible components of $(W_1)_{\mathrm{red}}$. By Bezout's theorem, $l \sim O(d)$. The above equation fails to cut off one dimension in $W_1$ if and only if for some $V_k$, LHS vanishes identically on $V_k$ and we denote the probability of this event by $\sP_k$. Therefore the set of $g_{0, 2}$ that will make LHS vanish identically on $V_k$ forms a coset of the restriction map 
+Let $V_1, \cdots, V_l$ be the irreducible components of $(W_1)_{\mathrm{red}}$. By Bezout's theorem, $l \sim O(d)$. The above equation fails to cut off one dimension in $W_1$ if and only if for some $V_k$, LHS vanishes identically on $V_k$ (denote the probability of this even by $\sP_k$). Therefore the set of $g_{0, 2}$ that will make LHS vanishes identically on $V_k$ forms a coset of the restriction map 
 $$ \varphi_k : S_{0, 0, \fl{d/p}} \to H^0(V_k, \sO) $$
 We will give a lower bound on $|\im \varphi_k|$, and thus an upper bound on $\sP_k = |\im \varphi_k|^{-1}$. 
 
-If $\dim \pi(V_k) \ge 1$, then $t$, and hence any nonzero polynomial in $t$, does not vanish identically on $V_k$. Therefore $|\im \varphi_k| \ge q^{\fl{d/p} + 1}$. If $\dim \pi(V_k) = 0$, then by lemma~\ref{projection}, 
+If $\dim \pi(V_k) \ge 1$, then $t$, and hence any nonzero polynomial in $t$, does not vanish on $V_k$, and so $|\im \varphi_k| \ge q^{\fl{d/p} + 1}$. If $\dim \pi(V_k) = 0$, then by lemma~\ref{projection}, 
 $$ |\im \varphi_k| \ge q^{\min(\fl{d/p} + 1, \deg(\pi(V_k)))} \ge q^{\min(\fl{d/p} + 1, j)} $$
 The conclusion of this step follows since 
-$$ \prod_{k = 1}^l (1 - \sP_k)  \sim \prod_{k = 1}^l (1 - \sO(d q^{-\min(\fl{d/p} + 1, j)}) \sim 1 - \sO(d q^{-\min(\fl{d/p} + 1, j)})$$
+$$ \prod_{k = 1}^l (1 - \sP_k) \sim 1 - \sO(d^2 q^{-\min(\fl{d/p} + 1, j)})$$
 The steps $i = 3, 4$ are similar to $i = 2$. 
 
 
@@ -459,20 +457,20 @@ $$ \varphi : \oplus_{r=0}^i S_{0, 0, \fl{n/p}} \stackrel{\psi}{\to} S_{2, 0, \fl
 where the intermediate map $\psi$ is given by 
 $$ (h_1, h_2, h_3) \mapsto u^2 h_1 + u h_2 + h_3 $$
 It is not hard to observe that $\psi$ is surjective, therefore we may reduce to studying the second map $S_{2, 0, \fl{n/p}} \to H^0(V_k, \sO)$. By a similar argument as before, the size of the image is bounded by $q^{\min(\fl{d/p} + 1, j)}$ and the rest of the arguments follows. 
-\subsection{Proof of the main result}
+\subsection{Proof of Main Result}
 For a fixed $e_0 \in \IN$, we define 
 \begin{align*}
-\sP_{e_0}^{\mathrm{low}} &= \union_{d \ge 0} \{ f \in R_{3, d} : H_f \textit{ is good at all $P \in \IP^1_{\IF_q}$,}\deg P < e_0\}\\
-\sQ_{e_0}^{\mathrm{med}} &= \union_{d \ge 0} \{f \in R_{3, d} : H_f \textit{ is bad at some $P \in \IP^1_{\IF_q}$,}\deg P \in [e_0, \lfloor d/p \rfloor]\}\\
-\sQ^{\mathrm{high}} &= \union_{d \ge 0} \{f \in R_{3, d} : H_f \textit{ is bad at some $P \in \IP^1_{\IF_q}$,}\deg P \in > d/p\}
+\sP_{e_0}^{\mathrm{low}} &= \union_{d \ge 0} \{ f \in R_{n, d} : H_f \textit{ is good at all $P \in \IP^1_{\IF_q}$,}\deg P < e_0\}\\
+\sQ_{e_0}^{\mathrm{med}} &= \union_{d \ge 0} \{f \in R_{n, d} : H_f \textit{ is bad at some $P \in \IP^1_{\IF_q}$,}\deg P \in [e_0, \lfloor d/p \rfloor]\}\\
+\sQ^{\mathrm{high}} &= \union_{d \ge 0} \{f \in R_{n, d} : H_f \textit{ is bad at some $P \in \IP^1_{\IF_q}$,}\deg P \in > d/p\}
 \end{align*}
 We prove the following three lemmas: 
 \begin{lemma}
 $$\Prob(f \in \sP_{e_0}^{\mathrm{low}}) = \prod_{\deg P < e_0} \Prob(f \textit{ is good at }P)$$
 \end{lemma}
 \begin{proof}
-Whether $f$ is good at $P$ is decided by its image in $H^0(\IP^2 \times P^{(2)}, \sO(3))$. Suppose $P_1, \cdots, P_s$ are the points with degree $< e_0$. By a similar linear-algebraic argument as in the proof of Lemma~\ref{pointsurj}, we see that if $$ d \ge \sum_{i = 1}^s 2 \deg P_i + 1 $$
-then $H^0(\IP^2 \times \IP^1, \sO(3, d)) \to \oplus_{i=1}^s H^0(\IP^2 \times P_i^{(2)}, \sO(3))$ is surjective. Hence the conclusion follows. 
+Whether $f$ is good at $P$ is decided by its image in $H^0(\IP^2 \times P^{(2)}, \sO(3))$. Suppose $P_1, \cdots, P_s$ are the points with degree $< e_0$. By a similar linear-algebraic argument as in the proof of Lemma~\ref{pointsurj}, we see that if $$ n \ge \sum_{i = 1}^s 2 \deg P_i + 1 $$
+then $H^0(\IP^2 \times \IP^1, \sO(3, n)) \to \oplus_{i=1}^s H^0(\IP^2 \times P_i^{(2)}, \sO(3))$ is surjective. Hence the conclusion follows. 
 \end{proof}
 
 \begin{lemma}
@@ -480,7 +478,7 @@ $$ \lim_{e_0 \to \infty} \Prob(f \in \sQ_{e_0}^{\mathrm{med}}) = 0 $$
 \end{lemma}
 \begin{proof}
 By Lemma~\ref{pointsurj}, when $\deg P \in [e_0, \lfloor d/p \rfloor]$ we still have that 
-$$ H^0(\IP^2 \times \IP^1, \sO(3, d)) \to H^0(\IP^1 \times P^{(2)}, \sO(3)) \iso H^0(\IP^1_{q^e}, \sO(3))^2 $$ is surjective since we have assumed $p > 2$ . In Lemma~\ref{pcount} we have already given an upper bound on bad pairs, which implies that $H_f$ is bad at $P$. Therefore 
+$$ H^0(\IP^2 \times \IP^1, \sO(3, d)) \to H^0(\IP^1_{q^e} \times P^{(2)}, \sO(3)) \iso H^0(\IP^1_{q^e}, \sO(3))^2 $$ is surjective since we have assumed $p > 2$ and $H^0(\IP^1_{q^e} \times P^{(2)}, \sO(3))$ is enough for us to decide whether $H_f$ is good at $P$. In Lemma~\ref{pcount} we have already given an upper bound on bad pairs, which implies that $H_f$ is bad at $P$. Therefore 
 \begin{align*}
 \frac{|\sQ_{e_0}^{\mathrm{med}} \cap S_{3, d}|}{|S_{3, d}|} \le \sum_{e = e_0}^{\fl{d/p} }|\IP^1_{\IF_{q}}(\IF_{q^e})| (c q^{-2e}) \le \sum_{e = e_0}^{\infty}c q^{-e}
 \end{align*}
@@ -499,14 +497,17 @@ $$ \Prob(f \in D) = \prod_{P \in \IP^1_{\IF_q}} \Prob(f \textit{ is good at }P) 
 
 Finally we treat the convergence of products. We invoke the following well known lemma:
 \begin{lemma}
-Suppse that $p_i, i = 1, 2, \cdots$ satisfy $0 \le p_i < 1$ and $\sum p_i < \infty$, then $\prod (1 - p_i) > 0$. 
+Suppse that $p_e, e = 1, 2, \cdots$ satisfy $0 \le p_e < 1$ and $\sum p_e < \infty$, then $\prod (1 - p_e) > 0$. 
 \end{lemma}
 
-Clearly at each $P \in \IP^1_{\IF_{q^e}}$, there are some hypersurface that is good at $P$. Therefore, none of the terms $\Prob(f \textit{ is good at }P)$ is zero. Lemma~\ref{pcount} implies 
-$$ \sum_{P \in \IP^1_{\IF_q}}  \Prob(f \textit{ is bad at }P) \le \sum_{e = 1}^\infty |\IP^1_{\IF_{q}}(\IF_{q^e})| (c q^{-2e}) < \infty $$ Thefore by previous lemma $\Prob(f \in D) > 0 $.
-
-
-
+We apply the lemma to $$p_e = \Prob(f \textit{ is bad at some } P \textit{ of degree }e) = 1 - \prod_{P \in \IP^1_{\IF_q}} \Prob(f \textit{ is good at }P)$$ By lemma~\ref{pcount}, we can bound $p_n$ by 
+$$ p_e  \le \sum_{\deg P = e} |\IP^1_{\IF_{q}}(\IF_{q^e})| (c q^{-2e}) \le \sum_{\deg P = e}  (c q^{-e}) $$
+There are $q^e + 1$ points instead of $q^e$ points of degree $e$ in the projective line when $e = 1$, but we can extend $c$ slightly larger if needed. 
+Therefore $\sum_e p_e < \infty$. Clearly at each $P \in \IP^1_{\IF_q}$, there are some hypersurface that is good at $P$. Therefore, none of the terms $(1 - p_e)$ is zero. We may now conclude that $\Prob(f \in D) > 0$. Finally we note that 
+$$ \prod_{e=1}^\infty (1 - p_e) \ge 1 - \sum_{p = 1}^\infty p_e \ge 1 - c \sum_{e = 1}^\infty q^{-e} = 1 - \frac{cq^{-1}}{1 - q^{-1}}$$
+If we replace $\IF_q$ with $\IF_{q^\alpha}$, then the last term is replaced with 
+$$ 1 - \frac{cq^{-\alpha}}{1 - q^{-\alpha}} $$
+which clearly converges to $1$ as $\alpha \to \infty$. 
 
 
 \begin{thebibliography}{9}
