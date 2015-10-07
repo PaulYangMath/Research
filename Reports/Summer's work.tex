@@ -167,7 +167,7 @@
 \author{Ziquan Yang}
 
 
-\date{August 10th, 2015}
+\date{August 10th, 2015 (edited on Sep. 28th)}
 
 \maketitle
 
@@ -180,7 +180,7 @@
 In his expositary paper \cite{Expo} Poonen discussed an easy application of the idea of sieve method in number theory to compute the density square-free integers. Since we are talking about an infinite subset of integers, we first need to define what we mean by density. 
 \begin{definition}
 \label{Zdef}
-The \textit{density} $\mu$ of a subset $S \subseteq \IN$ id defined by
+The \textit{density} $\mu$ of a subset $S \subseteq \IN$ is defined by
 $$\mu(S) = \lim_{B \to \infty} \frac{|S \cap [1, B]|}{B} $$
 \end{definition} Let $\sP$ be the set of all primes, and we use $\sP_{<r}$ to denote the set of primes $<r$. For every bounded $B$ we only need to take care of finitely many primes, i.e. sufficiently large $\sP_{<r}$, and we have a good understanding of how to deal with finitely many primes. With Chinese remainder theorem it is easy to compute the density of $S_r := \{ n \in \IN : p^2 \textit{ does not divide } n, \forall p \in \sP_{<r} \}$: $$\mu(S_r) = \prod_{p \in \sP_{< r}} (1 - p^{-2})$$
 However, the CRT argument breaks down for infinitely many primes. As $S$ is the limit of $S_r$, i.e $S = \cap_{r = 1}^\infty S_r$, we may want to push $r \to \infty$ and guess that $\mu(S) = \zeta(2)^{-1} = \pi^2/6$. It requires some nontrivial work to justify this switch of order of taking limits, i.e. 
@@ -259,7 +259,7 @@ To attack the problem I need to consider reducibility of fibers, which is not no
 The Poonen type sieve methods in \cite{Poonen} and \cite{Wood} depend heavily on linear algebraic arguments. In particular, at the end of the day we need linear equations with respect to partial derivatives, although sometimes nonlinear equations may naturally comes up. For example, the most natural way to describe the condition the plane curve described by $f = 0$ has a double line as tangent cone at a point $P$ is to require:
 $$f = \frac{\p f}{\p x} = \frac{\p f}{\p y} = 0,\, (\frac{\p^2 f}{\p x \p y})^2 = (\frac{\p^2 f}{\p x^2})(\frac{\p^2 f}{\p y^2})$$ at $P$, but the second equation is 
 nonlinear. We circumvented the problem by introducing a new variable $(u : v) \in \IP^1$ and look at the equation
-$$ \frac{\p^2 f}{\p x^2} u^2 + 2 \frac{\p^2 f}{\p x \p y} uv + \frac{\p^2 f}{\p y^2} v^2 $$ Therefore, instead of working directly with $\IA^2 \times \IA^1 \subseteq \IP^2 \times \IP^1$, we worked with $\IP^1 \times \IA^2 \times \IA^1$, where $\IP^1$ serves to parametrize the auxillary variables $(u : v)$. 
+$$ \frac{\p^2 f}{\p x^2} u^2 + 2 \frac{\p^2 f}{\p x \p y} uv + \frac{\p^2 f}{\p y^2} v^2 $$ Therefore, instead of working directly with $\IA^2 \times \IA^1 \subseteq \IP^2 \times \IP^1$, we worked with $\IP^1 \times \IA^2 \times \IA^1$, where $\IP^1$ serves to parametrize the auxilliary variables $(u : v)$. 
 
 
 I think I have treated the high degree points in the setting of this problem. However, in order to compute the exact density of $D$ we would need the following:
@@ -274,7 +274,7 @@ as vector spaces over $\IF_{q^e}$. We are concerned with the probability that a 
 \item $F_1$ describes a nodal curve in $\IP^2_{\IF_{q^e}}$ but $F_2$ does not vanish at the node. 
 \end{enumerate}
 
-In the end we did not compute the exact fractions. However, we were still able to use Lang-Weil bounds to show that at least, the density of $D$ should be positive. Therefore, if $N$ is sufficiently large, then for all $d \ge N$, there exists a smooth hypersurface of degree $d$ in $D$. 
+In the end we did not compute the exact fractions. However, we were still able to use Lang-Weil bounds to show that at least, the density of $D$ should be positive. Therefore, if $N$ is sufficiently large, then for all $d \ge N$, there exists a smooth hypersurface of degree $d$ in $D$. If we replace $\IF_q$ by $\IF_{q^l}$, then the density goes to $1$ as $l \to \infty$. In fact, $D$ contains an open subset of $\IP V$. If we are working with algebraically closed fields, then this already says that the density of $D$ is $1$. Therefore as the base field approaches its algberaic closure, the density of $D$ also approaches that of its algebraic closure. 
 
 \section{Future work}
 I am interested in how we can use sieve methods to systematically treat global properties that cannot be tested locally, for example, irreducibility. I know Prof. Poonen has already written an article on this, introducing new ideas that I have not yet absorbed. Probably I can write something on the semiample version of his Bertini irreducibility theorems.
