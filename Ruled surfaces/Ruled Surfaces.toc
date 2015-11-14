@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Lemmas and proofs}{3}
+\contentsline {subsection}{\numberline {2.1}Points of low degree}{3}
+\contentsline {subsection}{\numberline {2.2}Points of medium degree}{5}
+\contentsline {subsection}{\numberline {2.3}Points of high degree}{6}
+\contentsline {subsection}{\numberline {2.4}Proof of main result}{10}
