@@ -158,6 +158,8 @@
 \newcommand{\pr}{\mathrm{pr}}
 \newcommand{\Prob}{\mathrm{Prob}}
 \newcommand{\st}{\, \mathrm{ s.t. }\,}
+
+\newcommand{\bq}{\textbf{q}}
 %%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -172,7 +174,7 @@
 \author{Ziquan Yang}
 
 
-\date{July 15th, 2015}
+\date{}
 
 \maketitle
 
@@ -181,104 +183,182 @@
 
 \setcounter{section}{0}
 \section{Introduction}
-This note first presents an analogue of the traditional Bertini theorem that shows that almost all curves in $\IP^1 \times \IP^1$ are simply ramified with respect to projection to the second component, that is, such curves comprise a Zariski dense subset in some complete linear systems. Then we prove a Poonen type theorem for simply ramified curves of bidegree $(3, d)$ in $\IP^1 \times \IP^1$ over a finite field $\IF_q$. The outline of the proof is largely inspired by the Erman and Wood's work on semiample Bertini theorems over finite fields. However, we give an adaptation of Poonen's decoupling idea to treat second order partial derivatives.  
-\section{An analogue of Bertini's theorem}
+How should I do the introduction?
+\paragraph{Notation} 
+Let $X = \IP^1 \times \IP^1$ over a ground field $\kappa$. We label its coordinates as $((s_0, s_1), (t_0, t_1))$. When we need to differentiate, the first copy of $\IP^1$ is labelled $\IP^1_s$ and the second one $\IP^1_t$. Let $\pi : X \to \IP^1_t$ be the natural projection map. Given $P \in \IP^1_t$, let $X_Q$ denotes the fiber $\pi^{-1} P$. $R_{n, d} = H^0(\IP^1 \times \IP^1, \sO(n, d))$. For a section $f \in R_{n, d}$ or $\IP R_{n, d}$, the hypersurface in $X$ cut out by $f$ is denoted by $H_f$. If $C \subseteq X$ is a curve and $Q \in X$ is a closed point, then $e_Q(C)$ denotes the ramification degree of $C$ with respect to $\pi$. 
+\section{An analogue of Bertini's theorem} 
 \begin{theorem}
-Let $X = \IP^1 \times \IP^1$ and $V = \Gamma(X, \sO_X(n, d))$. Then $\IP V$ parametrizes curves of bidegree $(n, d)$. Let $\pi : X \to \IP^1$ be the projection to the second component. Let $P^0$ be the subscheme of $\IP V$ parametrizing smooth curves, then the subscheme $D$ parametrizing curves that are \textit{not} simply ramified with respect to $\pi$ is contained in a proper closed subscheme of $P^0$. 
+When $\kappa$ is algebraically closed, then for almost all $f \in R_{n, d}$, $H_f$ is simply ramified. More precisely, let $P^0$ be the subscheme of $\IP R_{n, d}$ parametrizing non-singular curves, then the subset 
+$$ D = \{ f \in \IP R_{n, d} : H_f \textit{ is not simply ramified w.r.t. } \pi \}$$ is contained in a proper closed subscheme of $P^0$. 
 \end{theorem} 
 \begin{proof}
-Given $f \in V$, let $H_f$ denote the curve in $\IP^2$ described by $f = 0$. Given $Q \in \IP^1$, we use $X_Q$ to denote the fiber over $Q$ under $\pi$, i.e. $\pi^{-1}(Q)$. We would use these conventions throughout this note. Roughly speaking, there are two types of curves in $D$. Type I curves are those that have a ramfication degree $\ge 3$ at some point. Type II curves are those that ramify at $\ge 2$ points along some fiber. For our purposes we may temporarily disregard the smoothness condition and define 
+To simplify notation in this proof we write $V = R_{n, d}$. 
+There are two types of curves in $D$. Type I curves are those that have a ramfication degree $\ge 3$ at some point. Type II curves are those that ramify at more than $2$ points along some fiber. We want to define subschemes of $\IP V$ that can be informally described as  
 \begin{align*} 
-D_1 &= \{ f \in \IP V : \exists P \in X, \st (H_f \cdot X_{\pi(P)})_P \ge 3 \} \\
-D_2 &= \{ f \in \IP V : \exists Q \in \IP^1, \st \exists P_k \in X_Q, (H_f \cdot X_{Q})_{P_k} \ge 2, k = 0, 1 \}
+D_1 &= \{ f \in \IP V : \exists Q \in X, \st e_Q(H_f) \ge 3 \} \\
+D_2 &= \{ f \in \IP V : \exists P \in \IP^1_t, \st e_{Q}(H_f), e_{Q'}(H_f) \ge 2 \textit{ for some }Q \neq Q' \in X_P \}
 \end{align*}
-Clearly $D = P^0 \cap (D_1 \cup D_2)$ and hence it suffices to prove the following two claims. \\\\
+Clearly $D$ corresponds the set of closed points in the scheme $P^0 \cap (D_1 \cup D_2)$ and hence it suffices to prove the following two claims. \\\\
 \textit{Claim 1 :} $D_1$ is a proper closed subscheme of $\IP V$. \\
-This is more or less a standard application of Bertini's arguments. We want $B \subseteq X \times \IP V$ to be the subsheme parametrizing pairs $(P, f)$ such that $(H_f \cdot X_{\pi(P)})_P \ge 3$. It suffices to describe $B$ locally. For $P$ we choose a standard affine chart $\IA^1 \times \IA^1$ containing it, and $f \in \IP V$ may be written as 
-$$ f = \sum_{0 \le i \le n} \sum_{0 \le j \le d} a_{ij} x^i y^j $$
-where $(a_{ij})$ can be thought of as coordinates of $\IP V$. Then the requirement $ f \in B_P $ can be described as 
-$$ f(P) = \frac{ \p }{\p x } f (P) = \frac{ \p^2 }{\p x^2 } f(P) = 0 $$
-This also shows that $B \cap (\IA^1 \times \IA^1) \times \IP V$ for each affine chart is closed, and hence $B$ is closed. For each $P$, $f \in B_P$ amounts to $3$ linear conditions on $\IP V$. Since $P$ takes values in $X$, and $\dim X = 2$, we have that $\dim B \le \IP V - 1$. $D_1$ is its projection to $\IP V$ and hence $D_1$ is closed and is of dimension $\le \IP V - 1$. \\\\
+This is more or less a standard application of Bertini's arguments. We want to define a subscheme $\wt{D}_1 \subseteq X \times \IP V$ to parametrize pairs $(P, f)$ such that $e_Q(H_f) \ge 3$. Suppose $Q \in \IA^1 \times \IA^2 = \Spec \kappa[s, t] \subset X$ where $s = s_0/s_1, t=t_0/t_1$. Then $f \in \IP V$ can be written in the form
+$$ f = \sum_{0 \le j \le n} \sum_{0 \le i \le d} a_{ij} s^i t^j $$
+where $(a_{ij})$ is homogeneous coordinates for $\IP V$. $e_Q(H_f) \ge 3$ if and only if
+$$ f(Q) = \frac{ \p }{\p s } f (Q) = \frac{ \p^2 }{\p s^2 } f(Q) = 0 $$
+Hence on $\IA^1 \times \IA^1 \times X$, $\wt{D}_1$ can be described as $\{ f = f_s = f_{ss} = 0 \}$ . Clearly the $e_Q(H_f)$ is independent of the affine chart of $X$ that we choose to cover $Q$, so if we define $\wt{D}_1$ this way on other charts, they patch up. For each $Q \in X$, $f \in (\wt{D}_1)_Q$ amounts to $3$ linear conditions on $\IP V$. Therefore we can easily compute that $\dim \wt{D}_1 \le \IP V - 1$. Let $D_1$ be the image of $\wt{D}_1$ under the projection to $\IP V$. $\wt{D}_1$ is closed in $X \times \IP V$ and hence by elimination theory $D_1$ is closed in $\IP V$. It is proper since $\dim D_1 \le \IP V - 1$.  \\\\
 \textit{Claim 2 :} $D_2$ is a contained in a proper closed subscheme of $\IP V$. \\
-The proof is not as straightforward as the previous one, since the question is no longer local at a point of $X$. Nonetheless we may sieve on pairs of points along the same fiber. Consider the space $ X \times X$. We label its coordinates as $((x_0 : x_1), (y_0 : y_1), (s_0 : s_1), (t_0 : t_1))$. Let $T'$ be the subscheme defined by $y_0 t_1 - y_1 t_0 = 0$ and let $\triangle$ be the diagonal of $ X \times X$, i.e. $\{y_0 t_1 - y_1 t_0 = 0, x_0 s_1 - x_1 s_0 = 0 \}$. Define $T = T' - \triangle$. Clearly $T$ is simply parametrizing pairs on $X$ that project to the same point under $\pi$ and we denote the projection of a pair of points in $T$ to their common image under $\pi$ by $\Pi$. This time we let $B$ be the subscheme of $ T \times \IP V$ parametrizing pairs $((P_0, P_1), f)$ such that $(H_f \cdot X_{Q})_{P_k} \ge 2,  k= 0, 1$. 
+The proof is not as straightforward as the previous one, since the question is no longer local at a point of $X$. Nonetheless we may sieve on pairs of points along the same fiber. Consider the space $ X \times X$. We label its coordinates as $((x_0 : x_1), (y_0 : y_1), (s_0 : s_1), (t_0 : t_1))$. Let $T'$ be the subscheme defined by $y_0 t_1 - y_1 t_0 = 0$ and let $\Delta$ be the diagonal of $ X \times X$, i.e. $\{y_0 t_1 - y_1 t_0 = 0, x_0 s_1 - x_1 s_0 = 0 \}$. Define $T = T' - \Delta$. Clearly $T$ is simply parametrizing pairs on $X$ that project to the same point under $\pi$. This time we let $B$ be the subscheme of $ T \times \IP V$ parametrizing pairs $((Q, Q'), f)$ such that $e_Q(H_f),  e_{Q'}(H_f) \ge 2$. More precisely, on $(\IA^1 \times \IA^1) \times (\IA^1 \times \IA^1) \times \IP V$, where 
+$(\IA^1 \times \IA^1) \times (\IA^1 \times \IA^1) \subset X \times X$ is the affine chart with coordinates $x= x_0/x_1, y = y_0/y_1, s = s_0/s_1, t = t_0/t_1$, $\wt{D}_2$ is defined as 
+\begin{equation}\tag{*} f(x , y) = \frac{\p}{\p x}f(x, y) = f(s, t) = \frac{\p}{\p s}f(s, t) = 0 \end{equation}
+To make sense of $f(x, y)$, we simply associate the point $f \in \IP V$ with homogeneous coordinates $(a_{ij})$ with $$ f = \sum_{0 \le j \le n} \sum_{0 \le i \le d} a_{ij} x^i y^j $$
+Therefore (*) is nothing but a concise way to write down polynomial equations in $x, y, s, t$ and $a_{ij}$'s. For each point $(Q, Q') \in X \times X$, $f \in (\wt{D}_2)_{(Q, Q')}$ amounts to 4 linear conditions on $a_{ij}$'s. Therefore we easily obtain $\dim \wt{D}_2 = \IP V - 1$. $D_2$ is defined as the image of $\wt{D}_2$ under the projection to $\IP V$, and there $D_2$ is a locally closed subscheme of $\IP V$ with closure $\overline{D}_2 \neq \IP V$. This proves Claim 2. 
 
-We observe that each $\IA^1 \times \IP^1 \cap T'$ can be covered by three copies of $\IA^1 \times \IA^1$, since it suffices to cover $\IP^1$ with three affine charts $\IA^1$ such that each pair is contained in one of them. For each pair $(P_0, P_1) \in T$, the requirement that $ f \in (T \times \IP V)_{(P_0, P_1)} $ amounts to 
-$$ f(P_0) = \frac{ \p }{\p x } f (P_0) = 0 \text{ and } f(P_1) = \frac{ \p }{\p x } f (P_1) = 0$$ i.e. $4$ linear conditions on $\IP V$. Note that $\dim T = 3$. By a similar argument as in the proof of claim 1 we see that again $\dim B = \IP V - 1$ and $D_2$ is precisely the image of $B$ under the projection to $\IP V$. 
 
 \end{proof}
 
 \section{A density result}
-\begin{theorem}
-The aymptotic probability as $d \to \infty$ for a curve in $\IP^1 \times \IP^1$ over $\IF_q$ of bidegree $(3, d)$ to be simply ramified with respect to the projection to the second component is $\zeta_{\IP_{\IF_q}}(2)^{-2}$. To be precise, let $X = \IP^1 \times \IP^1$, $A = \sO_X(1, 1)$, $E = \sO_X(0, 1)$, $n = 3$ and $R_{n,d} = H^0(X, \sO_X(nA + d E))$. Suppose $p = \mathrm{char } \IF_q \neq 2$. Then 
-$$\lim_{d \to \infty} \frac{|f \in R_{n, d} : H_f \textit{ is simply ramified}|}{|R_{n,d}|} = \zeta_{\IP_{\IF_q}}(2)^{-2} $$ In particular, the conditional probability for a randomly chosen smooth curve to be simply ramified is $\zeta_{\IP_{\IF_q}}(2)/\zeta_{\IP_{\IF_q}}(3)$. 
-\end{theorem}
-In the setting of Erman and Wood's paper, we have $$\iota : X \stackrel{|A|}{\to} \IP^3, \pi : X \stackrel{|E|}{\to} \IP^1$$ $\iota$ in our case is simply the Segre embedding and $\pi$ is projection to the second component. We say $f \in R_{n, d}$ is ``simply ramified" (resp. ``multiply ramified") at a point $Q \in X$ if $H_f$ and $X_{\pi(Q)}$ intersect with multiplicity $2$ (resp. $\ge 3$) at $Q$. We say $f \in R_{n, d}$ is ``good" at $Q \in X$, if $H_f$ is both smooth and simply ramified at $Q$, and ``bad" otherwise. For a fixed $e_0 \in \IN$, we define 
-\begin{align*}
-\sP_{e_0}^{\mathrm{low}} &= \union_{d \ge 0} \{ f \in R_{n, d} : f \textit{ is good at all $Q \in X$,}\deg \pi(Q) < e_0\}\\
-\sQ_{e_0}^{\mathrm{med}} &= \union_{d \ge 0} \{f \in R_{n, d} : f \textit{ is bad at some $Q$, }\deg \pi(Q) \in [e_0, \lfloor d/p \rfloor]\}\\
-\sQ^{\mathrm{high}} &= \union_{d \ge 0} \{f \in R_{n, d} : f \textit{ is bad at some $Q$, }\deg \pi(Q) > d/p\}
-\end{align*}
-In accordance with the convention in Erman and Wood's paper, by ``probability" we often mean the asymptotic probability as $d \to \infty$. To be precise, if $\sP \subseteq \union_d R_{n, d}$, we define 
+If $\sP \subseteq \union_d R_{3, d}$ is subset, we define 
 $$ \Prob(f \in \sP) = \lim_{d \to \infty}\Prob(f_d \in \sP) $$
-where $f$ and $f_d$ are randomly chosen from $\union_{d} R_{n, d}$ and $R_{n, d}$ respectively. We first compute the probability that $f$ is good at a single fiber:
-\begin{lemma} 
-\label{count}
-Given a closed point $P \in \IP^1$ with $\deg P = e$. The probability that $f \in R_{n, d}$ is good at all points on the fiber $X_P$ is 
-$$ ( 1 - q^{- 2e})^{-2} $$ for $d$ large enough. 
-\end{lemma}
-\begin{proof}
-I will fill in this proof later. A nicer argument than what I currently have could be given once I understand Erman and Wood's counting method. I shall also describe what is ``large enough". 
-\end{proof}
-We prove the theorem by proving three lemmas:
+where $f$ and $f_d$ are randomly chosen from $\union_{d} R_{3, d}$ and $R_{3, d}$ respectively. 
+\begin{theorem}
+\label{main}
+Suppose $p = \mathrm{char } \IF_q > 2$. Let $\sD \subset \union_d R_{3,d}$ be the subset of sections $f$ such that $H_f$ is simply ramified with respect to $\pi$. Then
+$$ \Prob(f \in \sD) = \zeta_{\IP_{\IF_q}}(2)^{-2} $$ In particular, the conditional probability for a randomly chosen non-singular curve to be simply ramified is $\zeta_{\IP_{\IF_q}}(2)/\zeta_{\IP_{\IF_q}}(3)$. 
+\end{theorem}
+
+We say $f \in R_{n, d}$ is ``good" at $Q \in X$, if $H_f$ is both non-singular and simply ramified at $Q$, and ``bad" otherwise. For a fixed $e_0 \in \IN$, we define 
+\begin{align*}
+\sP_{e_0}^{\mathrm{low}} &= \union_{d \ge 0} \{ f \in R_{3, d} : f \textit{ is good at all $Q \in X$,}\deg \pi(Q) < e_0\}\\
+\sQ_{e_0}^{\mathrm{med}} &= \union_{d \ge 0} \{f \in R_{3, d} : f \textit{ is bad at some $Q$, }\deg \pi(Q) \in [e_0, \lfloor d/p \rfloor]\}\\
+\sQ^{\mathrm{high}} &= \union_{d \ge 0} \{f \in R_{3, d} : f \textit{ is bad at some $Q$, }\deg \pi(Q) > d/p\}
+\end{align*}
+
 \begin{lemma}
 $$\Prob(f \in \sP_{e_0}^{\mathrm{low}}) = \prod_{\deg(P) < e_0} \Prob(H_f \textit{ is good at all points of } \pi^{-1}(P))$$
 \end{lemma}
-\begin{proof}
-Essentially the same proof as that of lemma 3.2 in \cite{Wood}. 
-\end{proof}
+
+Now we want to do some local analysis on the fiber. Let $P \in \IP^1_t$ be a closed point. Without loss of generality, we assume $t_1 \neq 0$ at $P$ and and lies in $\IA^1 = \Spec \IF_q[t]$ where $t = t_0/t_1$.   Let $\fm = (r(t))\subseteq \IF_q[t]$ be the maximal ideal corresponding to $P$, so that $P^{(2)} = \Spec \IF_q[t]/\fm^2$ and $\kappa(P) = \IF_q[t]/\fm$. Denote the reduction map $\IF_q[t]/\fm^2 \to \IF_q[t]/\fm$ by $g \mapsto \overline{g}$. We extend it to a map $H^0(\IP^1_{\IF_q[t]/\fm^2}, \sO(3)) \to H^0(\IP^1_{\IF_q[t]/\fm}, \sO(3))$ by applying $\IF_q[t]/\fm^2 \to \IF_q[t]/\fm$ to each coefficients. Let $\varphi_P : R_{3, d} \to H^0(\IP^1_{\IF_q[t]/\fm^2}, \sO(3))$ be the restriction map. $H_f$ is smooth at a point $Q \in \pi^{-1}(P)$ if and only if $\varphi_P(f)$ does not vanish at $Q^{(2)} \in \IP^1_{\IF_q[t]/\fm^2}$, and $e_Q(H_f) \ge 3$ if and only if $\wb{\varphi_P(f)}$ does not have a zero of multiplicity $\ge 3$ at $Q$ on $\IP^1_{\IF_q[t]/\fm}$. In other words, we can determine if $H_f$ is good at all points on $\pi^{-1}(P)$ by looking at the image of $f$ in $H^0(\IP^1_{\IF_q[t]/\fm^2}, \sO(3))$, so we observe that:
+
 \begin{lemma}
-$$\lim_{e_0 \to \infty} \Prob(f \in \sP_{e_0}^{\mathrm{med}}) = 0$$
+\label{Low}
+$$\Prob(f \in \sP_{e_0}^{\mathrm{low}})  = \prod_{\deg(P) < e_0}  \Prob( H_f \textit{ is good at all points } Q \in H_f \cap X_P ) $$
 \end{lemma}
 \begin{proof}
-For $\deg P \le \lfloor d/p \rfloor$, $d$ is large enough to apply lemma~\ref{count}. Therefore we may compute 
+More generally, if $\{P_1, P_2, \cdots, P_s\}$ is a set of finitely many closed points in $\IP^1$, the restriction map 
+$$ R_{3, d} = H^0(\IP^1 \times \IP^1, \sO(3, d)) \to \prod_{i = 1}^s H^0(X_{P_i^{(2)}}, \sO(3))$$
+is surjective for $ d \ge \sum_i 2 \deg P_i + 1$.  
+\end{proof}
+
+We make the following convention:
+ We call a pair $(F_1, F_2) \in H^0(\IP^1_{\kappa(P)}, \sO(3))^2$ ``bad" if it is one of the following 3 types:
+\begin{enumerate}
+\item $F_1$ has a root of multiplicity $\ge 2$ at a point where $F_2$ also vanishes. 
+\item $F_1$ has a root of multiplicity $3$ at a point where $F_2$ does not vanish. 
+\item $F_1 \equiv 0$.
+\end{enumerate}
+Let $\, \wt{} : \IF_q[t]/\fm \to \IF_q[t]/\fm^2$ be a $\IF_q$-linear map that is a section to the reduction map $\, \bar{} : \IF_q[t]/\fm^2 \to \IF_q[t]/\fm$. We extend it to a map $H^0(\IP^1_{\IF_q[t]/\fm^2}, \sO(3)) \to H^0(\IP^1_{\IF_q[t]/\fm}, \sO(3))$ in the same way we extended the reduction map. Then we have the following:
+\begin{lemma}
+$$ H^0(\IP^1_{\IF_q[t]/\fm}, \sO(3))^2 \to H^0(\IP^1_{\IF_q[t]/\fm^2}, \sO(3)) $$
+given by $(F_1, F_2) \mapsto \wt{F}_1 + uF_2$ is a bijection. Moreover, $f \in R_{3, d}$ is ``good" at all points $Q \in \pi^{-1}(P)$ if and only if $\varphi_P(f)$ does not correspond to a bad pair. 
+\end{lemma}
+\begin{proof}
+The map $f \mapsto ( \wb{f}, (f - \wt{\wb{f}})/r(t))$ is an inverse to the map given in the lemma. Let $(F_1, F_2)$ be the pair corresponding to $\varphi_P(f)$. $\varphi_P(f)$ vanishes on $Q^{(2)}$, i.e. $H_f$ is singular at $Q$, if and only if $Q$ is a double root of $F_1$ and a root to $F_2$. Similarly, $e_Q(H_f) \ge 3$ if and only if $Q$ is root to $F_1$ of multiplicity $\ge 3$. 
+\end{proof}
+
+\begin{lemma}
+\label{count}
+The density of good pairs in $H^0(\IP^1_{\kappa(P)}, \sO(3))^2$ is 
+$$ (1 - q^{-2e})^{2} $$
+\end{lemma}
+\begin{proof}
+We first count type 1 pairs. Let $P$ be the point that is a double root to $F_1$ and a root to $F_2$. Note that $\deg P = 1$. $F_1$ is fixed up to rescaling by $\IF_{q^e}^*$ after we choose a third root, which can be any point of degree $1$. Therefore there are $(q^e + 1)(q^e - 1)$ choices for $F_1$. The probability that $F_2$ vanishes at $P$ is $q^{-e}$, so we have $q^3$ choices for $F_2$. Since we have $(q^e + 1)$ choices for $P$, there are $q^{3e}(q^e + 1)^2(q^e - 1)$ type 1 pairs. 
+
+To count type 2 pairs, let $P$ be the triple root to $F_1$. Again there are $q^e + 1$ choices. At each $P$, there are $(q^e -1)$ homogeneous polynomials of degree $3$ which have $P$ as a triple root, since the leading coefficient will uniquely determine such a polynomial. We have $q^{4e} - q^{3e}$ choices for $F_2$. In total there are $ (q^e + 1)(q^e - 1)(q^{4e} - q^{3e})$
+pairs of type 2. 
+
+Finally when $F_1 = 0$, $F_2$ can be anything, so we have $q^{4e}$ type 3 pairs.
+Therefore the density of good pairs is 
+$$ 1 - q^{-8e}(q^{3e}(q^e + 1)^2(q^e - 1) + (q^e + 1)(q^e - 1)(q^{4e} - q^{3e}) + q^{4e}) = (1 - q^{-2e})^2 $$ 
+\end{proof}
+
+
+\begin{lemma}
+\label{Medium}
+$$\lim_{e_0 \to \infty} \Prob( f \in  \sQ_{e_0}^{\mathrm{med}}) = 0 $$
+\end{lemma}
+\begin{proof}
+Let $P$ be a point of degree $e < \lfloor d/p \rfloor$ on $C$ and let $B_P$ denote the event that a randomly chosen $f \in R_{3, d}$ is ``bad" at some point in the fiber $X_P$. By the proof of Lemma~\ref{Low}, the restriction map $R_{3, d} \to H^0(P^{(2)}, \sO(3))$ is surjective since $p > 2$ and $e < \lfloor d/p \rfloor < (d-1)/2$ when $d$ is large. Lemma~\ref{count} hence implies that probability that $f$ is ``bad" at some point in the fiber $X_P$ is $1 - (1 - q^{-2e})^2 < 2q^{-2e}$. 
 \begin{align*}
-\Prob( f \in \sP_{e_0}^{\mathrm{med}} ) &\le \lim_{d \to \infty} \sum_{e = e_0}^{ \lfloor d/p \rfloor } (2 q^{-2e} - q^{-4e}) q^e \\
-&\le \sum_{e = e_0}^{\infty} 2q^{-e}
+\Prob(f \in \sQ_{e_0}^{\mathrm{med}}) &\le \sum_{e = e_0}^{\lfloor d/p \rfloor} (\text{number of points of degree $e$ in $\IP^1$})(2q^{-2e}) \\
+&\le O(\sum_{e = e_0}^{\lfloor d/p \rfloor}q^{e} q^{-2e})\\
+&= O(\frac{c q^{-e_0}}{1 - q^{-1}})
 \end{align*}
-Of course, as $e_0 \to \infty$, it goes to zero. 
+Therefore as $e_0 \to \infty$, $\Prob(f \in \sQ_{e_0}^{\mathrm{med}}) \to 0$. 
 \end{proof}
+
 \begin{lemma}
-$$\Prob( f \in \sQ^{\mathrm{high}}) = 0 $$
+\label{prep}
+Let $j > 2$ be an integer. For a randomly chosen $f \in R_{3, d}$, the probability that there exists a point $Q \in \IP^1 \times \IP^1$ with $\deg \pi(Q) \ge j$ such that $e_{Q}(H_f) \ge 3$ or $H_f$ is singular at $Q$ is at most 
+$$ O(d^2 q^{- \min(\lfloor d/p \rfloor + 1, j)}) $$
 \end{lemma}
 \begin{proof}
-As in the proof of the analogue of Bertini theorem, $\sQ^{\mathrm{high}} = \sQ^{\mathrm{high}}_{\mathrm{sing}} \cup \sQ^{\mathrm{high}}_{\mathrm{multi}}$. As their name suggests, $\sQ^{\mathrm{high}}_{\mathrm{sing}}$ are those curves that are bad for being singular and $\sQ^{\mathrm{high}}_{\mathrm{multi}}$ for being multiply ramified. It is already shown in \cite{Wood} that $$ \Prob(f \in \sQ^{\mathrm{high}}_{\mathrm{sing}}) = 0 $$ and hence we only need to show
-$$ \Prob(f \in \sQ^{\mathrm{high}}_{\mathrm{multi}}) = 0 $$
-The proof is completed by taking $d \to \infty$ in the following lemma. 
+Since $\IP^1 \times \IP^1$ can be covered by $4$ affine charts $\IA^1 \times \IA^1$, it suffices for us to show that for each $\IA^1 \times \IA^1$, we have that for a randomly chosen $f \in R_{3, d}$, the probability that there exists a point $Q \in \IA^1 \times \IA^1$ with $\deg \pi(Q) \ge j$ such that $e_{Q}(H_f) \ge 3$ or $H_f$ is singular at $Q$ is at most $O(d^2 q^{- \min(\lfloor d/p \rfloor + 1, j)})$. Therefore we may work affine-locally. 
+
+Without loss of generality, we may assume $s_1 \neq 0, t_1 \neq 0$ on $\IA^1 \times \IA^1$ and work with coordinates $s = s_0/s_1, t = t_0/t_1$. Let $A_{n, d}$ be the polynomials that are of degree $\le n$ in $s$ and $\le d$ in $t$. Clearly by dehomogenizing sections in $S_{3, d}$, we may naturally identify $S_{3, d} = A_{3, d}$. Accordingly, we replace $H_f$ by $H_f \cap \IA^1 \times \IA^1$. We call a closed point $Q \in \IA^1 \times \IA^1$ \textit{admissible} if $\deg \pi(Q) \ge j$ and a subscheme $W \subseteq \IA^1 \times \IA^1$ \textit{admissible} if it contains an admissible point. By $(W)_{\mathrm{ad}}$ we denote the union of admissible irreducible component of $(W)_{\mathrm{red}}$. 
+
+We first deal with the probability that for a randomly chosen $f \in A_{3, d}$, $e_Q(H_f) \ge 3$ for some admissible $Q \in \IA^1 \times \IA^1$, which happens if and only if \begin{equation} \label{ramify} f(Q) = f_s(Q) = f_{ss}(Q) = 0 \end{equation}  
+
+Define $W_2 = \{f_{ss} = 0 \}, W_1 = W_2 \cap \{ f_s = 0 \}$ and $W_0 = W_1 \cap \{ f = 0 \}$. We want to bound the probability that for a randomly chosen $f \in A_{3, d}$, $W_0$ contains an admissible point.  
+
+Following Poonen's idea, we write $f$ is such a way so that the first and second order partial derivatives are largely independent. If $f_0 \in A_{3, d}$ and $g_1, g_2, h \in A_{0, \lfloor d/p \rfloor}$ are selected uniformly and independently at random, then the distribution of 
+$$ f = f_0 + g_1^p s^2 + g_2^p s + h^p $$
+is uniform over $A_{3, d}$. 
+Direct computation shows that 
+\begin{align*}
+f_s &= f_{0, s} + 2 g_1^p s + g_2^p\\
+f_{ss} &= f_{0, ss} + 2 g_1^p 
+\end{align*} 
+Note that $W_2$ depends only on the choice of $f_0, g_1$ and $W_1$ only on $f_0, g_1, g_2$. Let $E$ denote the event that 
+\begin{enumerate}[a.]
+\item The \textit{admissible} irreducible components of $W_1$ are of dimension $0$. 
+\item $f$ does not vanish at any of these irreducible components. 
+\end{enumerate} 
+Clearly if $E$ holds for $f$, then $W_0$ does not contain any admissible point. Therefore it suffices to show that for a randomly chosen $f \in A_{3, d}$, 
+$$ \Prob(E) = 1 - O(d^2 q^{- \min(\lfloor d/p \rfloor + 1, j)})  $$
+as $d \to \infty$. Now we bound $\Prob(E)$ in three steps: \\\\
+\textit{Step 1: }Conditioned on a choice of $f_0$, the probability that $\dim W_2 = 2$ is at most $q^{- (\lfloor d/p \rfloor + 1)}$, since $\dim W_2 = 2$ if and only if $g_1^p = - f_{0, ss}/2$, for which there is at most one choice of $g_1$. \\\\
+\textit{Step 2: }Conditioned on a choice of $f_0$ and $g_1$ such that $\dim W_2 = 1$, the probability that $\dim (W_1)_{\mathrm{ad}} = 1$ is at most $O(d q^{- \min(\lfloor d/p \rfloor + 1, j)})$. Let $V_1, \cdots, V_\ell$ be the $\IF_q$-irreducible component of $\{W_2 \}_{\mathrm{red}}$. View $\IP^1 \times \IP^1$ as a subscheme of $\IP^3$ via Segre embedding, we may apply B{\'e}zout's theorem to obtain that $\ell = O(d)$. $\dim W_1 = 1$ and $\pi(W_1)$ contains a point $P$ with $\deg P \ge j$ if and only if $f_s$ vanishes identically on $V_i$ for some $i$. We need to bound the set
+$$ G^{\mathrm{bad}}_i = \{ g_2 \in A_{0, \lfloor d/p \rfloor} : f_{0, s} + 2 g_1^p s + g_2^p \textit{ vanishes identically on }V_i \} $$
+If $g, g' \in G^{\mathrm{bad}}_i$, then $g - g'$ vanihes identically on $V_i$. Therefore $G^{\mathrm{bad}}_i$ is a coset of $\ker \varphi_i$, where $\varphi_i$ is the $\IF_q$-linear map $\varphi_i : A_{0, \lfloor d/p \rfloor} \to H^0(V_i, \sO_{V_i})$. Now we divide it into two cases. 
+
+Case 1: If $\dim \pi(V_i) > 0$, then the function $t$, and hence any nonzero polynomial in $t$, does not vanish identically on $V_i$. Therefore the codimension of $\ker \varphi_i$ in $A_{0, \lfloor d/p \rfloor}$ is $\lfloor d/p \rfloor + 1$, and the probability that $f_s$ vanishes identically on $V_i$ is at most $q^{- (\lfloor d/p \rfloor + 1)}$.   
+
+Case 2: If $\dim \pi(V_i) = 0$, then since $V_i$ is assumed to be admissible,  $\deg \pi(V_i) \ge j$ . $\varphi_i$ factors as $$A_{0, \lfloor d/p \rfloor} = \IF[t]_{\le \lfloor d/p \rfloor} \to H^0(\pi(V_i), \sO_{\pi(V_i)}) \stackrel{\pi^*}{\to} H^0(V_i, \sO_{V_i})$$ The pullback map $\pi^*$ is clearly injective. Let $B_{0, i}$ be the image of $A_{0, i}$ in $H^0(\pi(V_i), \sO_{\pi(V_i)})$. Suppose $\pi(V_i) = \Spec \IF_q[t]/(r(t))$, where $\deg r(t) = \deg \pi(V_i)$. Then it is clear that $\dim_{\IF_q} B_{0, i}$ increases in dimension with each increase of $i$ until it stabilizes at $\deg r$. Therefore $\dim \im \varphi_i \ge \min(\lfloor d/p \rfloor + 1, j)$, and the probability that $f_s$ vanishes identically on $V_i$ is at most $q^{- \min(\lfloor d/p \rfloor + 1, j)}$.   
+Since $q^{- (\lfloor d/p \rfloor + 1)} \le q^{- \min(\lfloor d/p \rfloor + 1, j)}$, and there are at most $O(d)$ such components $V_i$, in either case we obtain the desired conclusion of this step. \\\\
+\textit{Step 3: }Conditioned on a choice of $f_0, g_1$ and $g_2$ such that $\dim (W_1)_{\mathrm{ad}} = 0$, the probability that $(W_0)_{\mathrm{ad}} \neq \emptyset$ is at most $O(d^2 q^{- \min(\lfloor d/p \rfloor + 1, j)})$. Let $Q_1, Q_2, \cdots, Q_r$ be all irreducible components of $(W_1)_{\mathrm{ad}}$, where $r = |(W_1)_{\mathrm{ad}}|$. Since $W_1$ is cut out by $f_s$ and $f_ss$, and $\deg f_s, \deg f_{ss} = O(d)$, by B{\'e}zout theorem $r = O(d^2)$, and the same argument as in the previous paragraph shows that at each point in $W_1$, the probability that $f = 0$ at the point is at most $q^{- \min(\lfloor d/p \rfloor + 1, j)}$. \\\\
+Finally \textit{Step 1} and \textit{2} combined to give that 
+$$ \Prob(E_a) \ge (1 - q^{- (\lfloor d/p \rfloor + 1)})(1- q^{- \min(\lfloor d/p \rfloor + 1, j)}) = 1 - O(d q^{- \min(\lfloor d/p \rfloor + 1, j)}) $$
+And \textit{Step 3} gives 
+$$ \Prob(E) \ge \Prob(E_a)(1 - O(d^2 q^{- \min(\lfloor d/p \rfloor + 1, j)})) = 1 - O(d^2 q^{- \min(\lfloor d/p \rfloor + 1, j)}) $$
+
+Now we deal with the probability that $H_f$ is singular at $Q$ for some $Q \in \IA^1 \times \IA^1$, which happens if and only if $f(Q) = f_s(Q) = f_t(Q) = 0$. This time we may write $f$ in the form 
+$$ f = f_0 + g_1^p s + g_2^p t + h^p $$
+for some randomly chosen $f_0 \in A_{3, d}$ and $g_1, g_2, h \in A_{0, \lfloor d/p \rfloor}$. The rest of the proof is completely analogous to the above. 
 \end{proof}
 
+
 \begin{lemma}
-Let $f \in R_{n, d}$ be chosen and random and $j \in \IN$ be fixed. The probability $P^*$ that $H_f$ has a multiply ramified point $Q \in X$ with $\deg \pi(Q) \ge j$ is at most
-$$ \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j    \}})$$
+\label{High}
+$$\Prob( f \in  \sQ^{\mathrm{high}}) = 0 $$
 \end{lemma}
-For the spaces involved in morphisms $\iota : X \to \IP^3$ and $\pi : X \to \IP^1$ we label the coordinates of $X$ as $((x_0 : x_1), (y_0 : y_1))$, those of $\IP^3$ as $(s_0 : s_1 : s_2 : s_3)$ and those of $\IP^1$ as $(t_0 : t_1)$. We only consider their affine chart on which the first coordinate does not vanish and may use the same letters to denote the dehomogenized coordinates, but we will use ``," instead of ``:" for affine coordiantes. In the proof we use $\iota$ to identify $X$ with a subscheme of $\IP^3$. On affine chart $\IA^2 = \{ x_0, y_0 \neq 0 \} \subseteq X$, $\iota$ restricts to $$(x, y) \mapsto (x, y, xy) \in \IA^3 = \{s_0 \neq 0\} \subseteq \IP^3$$. We can cover $X$ by finitely many affine opens, so we may restrict to $U = X \cap \IA^3$. On $U$ we see that $s_3 = s_1 s_2$ and hence $ds_3 = s_2 ds_1 + s_1 ds_2$. Therefore the differentials in $U$ are generated by $ds_1, ds_2$. For each $f \in A = \IF_q[s_1, s_2, s_3]$, on $U$ $df$ has a unique decomposition $df = D_1 f ds_1 + D_2 f ds_2$. This gives maps $D_i : A \to A$, which we should think of as derivatives of pullbacks. To be precise, if $\Phi : A \to \IF_q[x, y]$ is the pullback map of regular functions, then $$\Phi(D_1 f) = \frac{\p}{\p x} \Phi(f), \text{ and }\Phi(D_2 f) = \frac{\p}{\p y} \Phi(f)$$ As an example, let $f = s_3$, then $D_1 f = s_2, D_2 f = s_1$, and the verification is straightforward. 
-
-Now let me explain a simple linear algebraic observation. Let $V$ be a $n$-dimensional vector space over $\IF_q$ and $\ker L$ is a $k$-dimensional subspace ($L$ is some linear map). Let $W \subseteq V$ be a $m$-dimensional subspace, then $\dim W \cap \ker L \ge m + k - n$, and hence $$\frac{|W \cap \ker L|}{|W|} \ge \frac{q^{m + k - n}}{q^m} = q^{k - n} = \frac{|\ker L|}{|V|}$$ Note that the image of a curve in the second infinitestimal neighborhood $Q^{(3)}$ on $U$ already contains enough informaiton to decide whether the curve is multiply ramified at $Q$ and the map $S_{n, d} = H^0(\IP^3 \times \IP^1, \sO(n, d)) \to H^0(Q^{(3)}, \sO_{Q^{(3)}})$ factors through $\phi : S_{n, d} \to R_{n, d}$. The probability that a randomly chosen $f \in R_{n, d}$ to give a curve multiply ramified at $Q$ is bounded by that of $g \in S_{n, d}$. Therefore we reduce to studying a randomly chosen $g \in S_{n, d}$.  
-
-Locally $\phi$ is viewed as follows: On chart $\IA^1 = \{t_0 \neq 0 \} \subseteq \IP^1$, the dehomogenized coordinate function $t = t_1/t_0$ pulls back via $\pi$ to a regular function on $U$, but in practice it only means on $U$ we identify $t$ with $y$ or $s_2$. Recall that for a point $Q \in U$, $g \in S_{n, d}$ is multiply ramified at $Q$ if and only if $$Q \in \{ D_1 \phi(g) = D_1^2 \phi(g) = \phi(g) = 0 \}$$ Since we are primarily concerned with $D_1$ we would drop the supscript and write $D_1 = D$ and similarly $s = s_1$. 
-
-We apply the Poonen's decoupling idea to decouple the first and second order partial derivatives in this context. To choose $g \in S_{n, d}$ at randomly we choose $g_0 \in S_d$, $g_1, g_2, h \in S_{0, \lfloor d/p \rfloor} $ at random and put 
-$$ g = g_0 + g_1^p s^2 + g_2^p s + h^p $$ This has the advantage that 
-$$ D \phi(g) = D \phi(g_0) + 2 \phi(g_1^p s) + \phi(g_2)^p \text{ and } D^2 \phi(g) = D^2 \phi(g_0) + 2 \phi(g_1)^p $$
-Define $W_2 = U \cap \{ D^2 \phi(g) = 0 \}$, $W_1 = U \cap \{D^2 \phi(g) = D \phi(g) = 0\}$ and $W_0 = U \cap \{ D^2 \phi(g) = D \phi(g) = \phi(g) = 0\}$. \\\\
-\textit{Claim: }Conditioned on a choice of $g_0$, the probability that $\dim W_2 = 1$ and $W_2$ contains a point $Q$ with $\deg \pi(Q) \ge j$ (following Erman and Wood's convention we call such $Q$ an ``admissible" point) is $$1 - \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}})$$ Let $V_1, \cdots, V_c$ be irreducible components of $\{D^2(\phi(g_0)) = 0\}_{\mathrm{red}}$. For each $V_k$ that contains an admissible point, those $g_1$ that will make $D^2 \phi(g)$ vanish identically on $V_k$ form a coset of the linear map $$ \varphi_k : S_{0, \lfloor n/p \rfloor} \to H^0(V_k, \sO_{V_k})$$ A lower bound on $|\im \varphi_k|$ gives an upper bound for the probability that $D^2(g)$ vanishes on $V_k$, which is simply the inverse of $|\im \varphi_k|$. If $\dim \pi(V_k) = 1$, we see that the pullback of $t$, and hence any polynomial in $t$, does not vanish on $V_k$. In this case, we have $|\im \varphi_k| \ge q^{\lfloor d/p \rfloor + 1}$. If $\dim \pi(V_k) = 0$, we invoke lemma 5.3 in \cite{Wood} to obtain $|\im \varphi_k| \ge q^{\min \{\lfloor d/p \rfloor + 1, j \}  }$. The claim hence follows. Similarly, we can show that the probability that $\dim W_1 = 0$ conditioned on a choice of $g_0, g_1$ such that $\dim W_2 = 1$, and the probability that $W_0 \cap W_1$ contains no admissible points conditioned on a choice that $\dim W_1 = 0$ are both bounded by $$1 - \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}})$$
-Therefore we have shown that 
-$$ P^* \le 1 - (1 - \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}}))^3 = \sO((n + d)q^{- \min\{ \lfloor d/p \rfloor + 1, j\}}) $$ 
-
-Finally,
-
-\section{Conclusion}
-For curves of bidegree $(3, d)$ we have the luxury of dealing only with those type I curves as in the analogue of Bertini theorem that we proved earlier. I conjecture that the independence across fibers still holds for $n \ge 3$. As our earlier proof suggests, this may involve a sieve on pairs of points. It seems that the paper by Poonen's student, Nyugen gives an example of treating pairs of points. Hence I will see if I can borrow some ideas in his paper to treat the general case $n \ge 3$. 
-
+\begin{proof}
+Apply Lemma~\ref{prep} with $j = \lfloor d/p \rfloor$. 
+\end{proof}
+\noindent \textit{Proof of Theorem~\ref{main}.} 
+For each $e_0$, we have that 
+$$  \sP_{e_0}^{\mathrm{low}} \subseteq \sD \subseteq \sP_{e_0}^{\mathrm{low}} \cup \sQ_{e_0}^{\mathrm{med}} \cup \sQ^{\mathrm{high}}$$
+Therefore 
+$$ \Prob(f \in \sP_{e_0}^{\mathrm{low}}) \le \Prob(f \in \sD) \le \Prob(f \in \sP_{e_0}^{\mathrm{low}} \cup \sQ_{e_0}^{\mathrm{med}} \cup \sQ^{\mathrm{high}})$$
+Now take $e_0 \to \infty$, Lemma~\ref{Low}, \ref{count}, \ref{Medium}, \ref{High} combine the give the result. \qed
 \begin{thebibliography}{9}
 \bibitem{Wood} 
 D. Erman and M.M. Wood, \textit{Semiample Bertini theorems over finite fields}, Duke Mathematical Journal 164 (2015), no. 1, 1-38
